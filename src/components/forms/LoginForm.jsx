@@ -1,17 +1,17 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import Input from "../shared/Input";
-import SubmitBtn from "../shared/SubmitBtn";
-import { AiFillLock } from "react-icons/ai";
-import { IoMdClose } from "react-icons/io";
+import { IconLock } from "../../assets/icons";
 import {
-  LOGIN,
-  DISABLE_PROFILE,
-  SHOW_NOTIFICATION,
   ACTIVATE_PROFILE,
+  DISABLE_PROFILE,
+  LOGIN,
+  SHOW_NOTIFICATION,
 } from "../../global";
 import { authService, userProfile } from "../../service";
+import Input from "../shared/Input";
+import ShowError from "../shared/ShowError";
+import SubmitBtn from "../shared/SubmitBtn";
 
 function LoginForm() {
   const {
@@ -65,18 +65,11 @@ function LoginForm() {
   return (
     <>
       <div className="w-full space-y-4">
-        {error && (
-          <div className="w-full py-3 pl-4 pr-2 bg-red-500 text-white rounded-xl flex items-center justify-between">
-            <p className="text-sm">{error}</p>
-
-            <div
-              onClick={() => setError("")}
-              className="rounded-full duration-200 hover:bg-red-400 p-2 cursor-pointer"
-            >
-              <IoMdClose />
-            </div>
-          </div>
-        )}
+        <ShowError
+          error={error}
+          errorMessage={error}
+          closeError={() => setError("")}
+        />
 
         <form onSubmit={handleSubmit(loginEvent)} className="space-y-4">
           <Input
@@ -110,9 +103,10 @@ function LoginForm() {
           {/* <p className="text-sm font-semibold">Forgot password</p> */}
 
           <SubmitBtn
+            error={errors?.password || errors?.email}
             btnText="Login"
             textOnLoad="Logging you in"
-            defaultIcon={<AiFillLock />}
+            defaultIcon={<IconLock />}
             loading={loading}
           />
         </form>

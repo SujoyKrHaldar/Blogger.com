@@ -1,11 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import Input from "../shared/Input";
-import SubmitBtn from "../shared/SubmitBtn";
-import { IoMdClose } from "react-icons/io";
 import { LOGIN, SHOW_NOTIFICATION } from "../../global";
 import { authService } from "../../service";
+import Input from "../shared/Input";
+import ShowError from "../shared/ShowError";
+import SubmitBtn from "../shared/SubmitBtn";
 
 function SignupForm() {
   const {
@@ -46,58 +46,13 @@ function SignupForm() {
   return (
     <>
       <div className="w-full space-y-4 ">
-        {error && (
-          <div className="w-full py-3 pl-4 pr-2 bg-red-500 text-white rounded-xl flex items-center justify-between">
-            <p className="text-sm">{error}</p>
+        <ShowError
+          error={error}
+          errorMessage={error}
+          closeError={() => setError("")}
+        />
 
-            <div
-              onClick={() => setError("")}
-              className="rounded-full duration-200 hover:bg-red-400 p-2 cursor-pointer"
-            >
-              <IoMdClose />
-            </div>
-          </div>
-        )}
         <form onSubmit={handleSubmit(signupEvent)} className="space-y-4">
-          {/* <div className="flex gap-2">
-            <Input
-              label="Name"
-              placeholder="Jhon doe"
-              error={errors?.name || error}
-              errorMessage={errors?.name?.message}
-              {...register("name", {
-                required: "Name is required.",
-              })}
-            />
-
-            <Input
-              label="Username"
-              placeholder="Jhondoe007"
-              error={errors?.username || error}
-              errorMessage={errors?.username?.message}
-              {...register("username", {
-                required: "Username is required.",
-                maxLength: {
-                  value: 15,
-                  message: "Username must be maximum 15 characters long.",
-                },
-                validate: {
-                  noSpaces: (value) => {
-                    return (
-                      !/\s/.test(value) || "Username cannot contain spaces."
-                    );
-                  },
-                  validFormat: (value) => {
-                    return (
-                      /^[a-zA-Z0-9_]+$/.test(value) ||
-                      "Username can only contain letters, numbers, and underscores."
-                    );
-                  },
-                },
-              })}
-            />
-          </div> */}
-
           <Input
             label="Name"
             placeholder="Jhon doe"
@@ -137,7 +92,11 @@ function SignupForm() {
             })}
           />
 
-          <SubmitBtn btnText="Get started" loading={loading} />
+          <SubmitBtn
+            error={errors?.name || errors?.email || errors?.password}
+            btnText="Get started"
+            loading={loading}
+          />
         </form>
       </div>
     </>
