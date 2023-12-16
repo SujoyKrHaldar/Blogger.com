@@ -1,10 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useSelector, useDispatch } from "react-redux";
-import { HIDE_NOTIFICATION } from "../../global";
-import { IoMdClose, IoIosWarning } from "react-icons/io";
-import { TiTick } from "react-icons/ti";
-import { MdError } from "react-icons/md";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  IconClose,
+  IconError,
+  IconSuccess,
+  IconWarning,
+} from "../../assets/icons";
+import { HIDE_NOTIFICATION } from "../../global";
 
 const Notification = () => {
   const { isVisible, notification, isLoading } = useSelector(
@@ -31,7 +34,7 @@ const Notification = () => {
       className={`w-full z-10 overflow-hidden pointer-events-auto duration-500 ease-in-out flex items-center
       ${isVisible ? "h-[40px] py-2" : "h-0 py-0"}  
       ${notification?.type === "SUCCESS" && "bg-green-700 text-white"} 
-      ${notification?.type === "ERROR" && "bg-red-500 text-white"}
+      ${notification?.type === "ERROR" && "bg-red-600 text-white"}
       ${notification?.type === "WARNING" && "bg-yellow-600 text-white"}`}
     >
       <div className="container flex items-center justify-between">
@@ -41,20 +44,20 @@ const Notification = () => {
           ) : (
             <>
               {notification?.type === "ERROR" && (
-                <div className="text-red-300 ">
-                  <MdError />
+                <div className="text-red-100 ">
+                  <IconError />
                 </div>
               )}
 
               {notification?.type === "WARNING" && (
-                <div className="text-yellow-100 pl-1">
-                  <IoIosWarning />
+                <div className="text-white pl-1">
+                  <IconWarning />
                 </div>
               )}
 
               {notification?.type === "SUCCESS" && (
-                <div className="text-green-200 bg-green-600 rounded-full duration-200 p-[0.2rem] cursor-pointer">
-                  <TiTick />
+                <div className="text-green-600 bg-white rounded-full duration-200 p-[0.1rem] cursor-pointer">
+                  <IconSuccess />
                 </div>
               )}
             </>
@@ -67,10 +70,10 @@ const Notification = () => {
             onClick={handleClose}
             className={`rounded-full duration-200 p-1 cursor-pointer 
                 ${notification?.type === "SUCCESS" && "hover:bg-green-600"} 
-                ${notification?.type === "ERROR" && "hover:bg-red-400"}
+                ${notification?.type === "ERROR" && "hover:bg-red-500"}
                 ${notification?.type === "WARNING" && "hover:bg-yellow-500"}`}
           >
-            <IoMdClose />
+            <IconClose />
           </div>
         )}
       </div>
