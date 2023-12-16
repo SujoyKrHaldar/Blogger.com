@@ -62,7 +62,7 @@ function App() {
     <>
       <Layout>
         <SplashScreen loading={loading} />
-        <Outlet />
+        {!loading ? <Outlet /> : null}
       </Layout>
     </>
   );
