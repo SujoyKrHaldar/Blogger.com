@@ -1,3 +1,8 @@
-React.js + Appwrite = Blogging Application V1
+# Blogger.com
+A multiuser blogging platform just like Medium, Hashnode.
 
-https://undraw.co/search for UI illustrations #36B91C
+## Tech Stack
+**Client:** React, Redux-toolkit, TailwindCSS
+**Server:** Appwrite
+
+<!-- https://undraw.co/search for UI illustrations #36B91C -->
