@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
 import { forwardRef, useId, useState } from "react";
-import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import { IconError, IconEyeInvisible, IconEyeOpen } from "../../assets/icons";
 
 const Input = forwardRef(
   (
@@ -36,7 +36,7 @@ const Input = forwardRef(
               placeholder:font-light placeholder:text-sm font-regular 
             ${
               error
-                ? "border-red-600 text-red-600 placeholder:text-red-600"
+                ? "border-2 border-red-600 text-red-600 placeholder:text-red-600"
                 : "border-black text-black placeholder:text-gray-800"
             } ${className}`}
               {...props}
@@ -50,20 +50,29 @@ const Input = forwardRef(
               >
                 {currentType === "password" ? (
                   <div onClick={() => setType("text")}>
-                    <AiFillEyeInvisible />
+                    <IconEyeInvisible />
                   </div>
                 ) : (
                   <div onClick={() => setType(type)}>
-                    <AiFillEye />
+                    <IconEyeOpen />
                   </div>
                 )}
               </div>
             )}
-            {description && !error && <p className="text-xs text-gray-500">{description}</p>}
+            {description && !error && (
+              <p className="text-xs text-gray-500">{description}</p>
+            )}
           </div>
 
-          {error && (
-            <p className="w-fit text-red-600 text-sm">{errorMessage}</p>
+          {error && errorMessage && (
+            <div className="flex items-center gap-1">
+              <div className="text-red-600">
+                <IconError />
+              </div>
+              <p className="w-fit text-red-600 text-xs font-medium">
+                {errorMessage}
+              </p>
+            </div>
           )}
         </div>
       </>
