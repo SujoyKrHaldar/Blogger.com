@@ -31,31 +31,6 @@ const PrivateRoute = ({ children }) => {
   ) : (
     children
   );
-
-  // const [loading, setLoading] = useState(true);
-
-  // const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   console.log("PRIVATE ROUTE RUNNING ...", !authStatus);
-  //   if (!authStatus) {
-  //     navigate("/login");
-  //   } else if (authStatus && !isActivated) {
-  //     navigate("/get-started");
-  //   }
-  //   setLoading(false);
-  // }, [authStatus, isActivated]);
-
-  // return (
-  //   <>
-  //     {loading ? (
-  //       <SplashScreen loading={loading} title="Redirecting" />
-  //     ) : (
-  //       { children }
-  //     )}
-  //     2
-  //   </>
-  // );
 };
 
 export { PrivateRoute, GuestRoute, SemiProtectedRoute };
@@ -78,4 +53,5 @@ export { PrivateRoute, GuestRoute, SemiProtectedRoute };
 // Accessable by only Authenticated Users
 // ( authStatus = T && isActivated = T)
 // if authStatus = F => redirected to => /login
+// if authStatus = T & isActivated = F => redirected to => /get-started
 // if authStatus = T & isActivated = T => redirected to => /dashboard
