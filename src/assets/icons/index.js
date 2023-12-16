@@ -1,21 +1,15 @@
-import { MdError as IconError } from "react-icons/md";
-import { TiTick as IconSuccess } from "react-icons/ti";
+import {
+  AiFillEyeInvisible as IconEyeInvisible,
+  AiFillEye as IconEyeOpen, AiFillLock as IconLock
+} from "react-icons/ai";
 import {
   IoMdClose as IconClose,
   IoIosWarning as IconWarning,
 } from "react-icons/io";
-import { AiFillLock as IconLock } from "react-icons/ai";
-import {
-  AiFillEyeInvisible as IconEyeInvisible,
-  AiFillEye as IconEyeOpen,
-} from "react-icons/ai";
+import { MdError as IconError } from "react-icons/md";
+import { TiTick as IconSuccess } from "react-icons/ti";
 
 export {
-  IconError,
-  IconClose,
-  IconLock,
-  IconEyeInvisible,
-  IconEyeOpen,
-  IconWarning,
-  IconSuccess,
+  IconClose, IconError, IconEyeInvisible,
+  IconEyeOpen, IconLock, IconSuccess, IconWarning
 };
