@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 function SubmitBtn({
   loading,
+  error = null,
   defaultIcon = "",
   btnText = "Submit",
   textOnLoad = "Please wait",
@@ -10,7 +11,12 @@ function SubmitBtn({
   return (
     <button
       type="submit"
-      className={`w-full px-5 pt-4 pb-4 cursor-pointer flex items-center gap-3 justify-center
+      className={`w-full px-5 pt-4 pb-4 flex items-center gap-3 justify-center
+      ${
+        error
+          ? "opacity-80 cursor-not-allowed"
+          : "opacity-100 cursor-pointer"
+      }
       ${className}`}
     >
       {loading ? (
