@@ -11,12 +11,12 @@ function AuthUI({
 }) {
   return (
     <section className="flex items-center">
-      <div className="absolute top-0 right-0 w-[40%] h-full border-l border-gray-500 overflow-hidden">
+      <div className="absolute top-0 right-0 w-[45%] h-full border-l border-gray-500 overflow-hidden">
         <Image objectPosition={objectPosition} src={imgSrc} alt={imgAlt} />
       </div>
       <div className="container space-y-8">
         <div className="max-w-md py-16">
-          <h1 className="mb-8">{title}</h1>
+          <h1 className="mb-4">{title}</h1>
           {FormComponent}
           <p className="text-xs text-gray-500 mt-4">
             By{" "}
