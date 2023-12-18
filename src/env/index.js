@@ -6,8 +6,10 @@ const config = {
   appwriteUserCollectionId: String(
     import.meta.env.VITE_APPWRITE_USER_COLLECTION_ID
   ),
-  testCollectionId: String(import.meta.env.VITE_APPWRITE_TEST_COLLECTION_ID),
-  appwriteBucketId: String(import.meta.env.VITE_APPWRITE_BUCKET_ID),
+  // testCollectionId: String(import.meta.env.VITE_APPWRITE_TEST_COLLECTION_ID),
+  appwriteUserProfilePicStorageId: String(
+    import.meta.env.VITE_APPWRITE_USER_PROFILE_PIC_STORAGE_ID
+  ),
   clientUrl: String(import.meta.env.VITE_CLIENT_URL),
 };
 
