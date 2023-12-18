@@ -4,7 +4,7 @@ import Image from "../shared/Image";
 
 import { useSelector, useDispatch } from "react-redux";
 import { assetService, authService } from "../../service";
-import { LOGOUT, SHOW_NOTIFICATION, SHOW_LOADING } from "../../global";
+import { LOGOUT, SHOW_NOTIFICATION, SHOW_LOADING, DISABLE_PROFILE } from "../../global";
 import { useState } from "react";
 import SearchInput from "../shared/SearchInput";
 import { IconClose } from "../../assets/icons";
@@ -26,6 +26,8 @@ function Navbar() {
       );
       await authService.logout();
       dispatch(LOGOUT());
+      dispatch( DISABLE_PROFILE())
+
       dispatch(
         SHOW_NOTIFICATION({
           message: "Logout successfull",
