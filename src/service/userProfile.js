@@ -25,6 +25,7 @@ class UserProfile {
 
       return profile;
     } catch (error) {
+      if (error.type === "document_already_exists") throw "Username is taken.";
       throw error.message;
     }
   }
