@@ -1,22 +1,7 @@
 import { ArticleList, HomeLanding, MetaTags } from "../../components";
-import { useEffect, useState } from "react";
 
 function Home() {
-  const [data, setData] = useState([]);
-
-  const fetchData = async () => {
-    const response = await fetch(
-      "https://api.slingacademy.com/v1/sample-data/blog-posts?limit=4"
-    );
-    if (response.ok) {
-      const { blogs } = await response.json();
-      setData(blogs);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // const [data, setData] = useState([]);
 
   return (
     <>
