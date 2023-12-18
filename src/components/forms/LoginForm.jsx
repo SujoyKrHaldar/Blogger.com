@@ -35,7 +35,7 @@ function LoginForm() {
         if (userData) {
           const profile = await userProfile.getProfile(userData.$id);
           if (profile) {
-            dispatch(ACTIVATE_PROFILE());
+            dispatch(ACTIVATE_PROFILE(profile));
           } else {
             dispatch(DISABLE_PROFILE());
           }
