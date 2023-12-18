@@ -8,7 +8,7 @@ import {
   LOGIN,
   SHOW_NOTIFICATION,
 } from "../../global";
-import { authService, userProfile } from "../../service";
+import { authService } from "../../service";
 import Input from "../shared/Input";
 import ShowError from "../shared/ShowError";
 import SubmitBtn from "../shared/SubmitBtn";
@@ -30,15 +30,12 @@ function LoginForm() {
     try {
       const session = await authService.login(data);
       if (session) {
-        const userData = await authService.getCurrentUser();
+        const { userData, profileData } = await authService.getCurrentUser();
 
         if (userData) {
-          const profile = await userProfile.getProfile(userData.$id);
-          if (profile) {
-            dispatch(ACTIVATE_PROFILE(profile));
-          } else {
-            dispatch(DISABLE_PROFILE());
-          }
+          profileData
+            ? dispatch(ACTIVATE_PROFILE(profileData))
+            : dispatch(DISABLE_PROFILE());
 
           dispatch(LOGIN(userData));
           dispatch(
