@@ -1,3 +1,4 @@
+/* eslint-disable no-constant-condition */
 /* eslint-disable no-useless-catch */
 import { Client, Account, ID } from "appwrite";
 import config from "../env";
@@ -25,6 +26,10 @@ class AuthService {
         return this.login({ email, password });
       }
     } catch (error) {
+
+      if (error.type === "user_already_exists" || "user_email_already_exists")
+        throw "User with the same email already exists.";
+
       throw error.message;
     }
   }
@@ -47,36 +52,10 @@ class AuthService {
       if (currentUser) {
         return currentUser;
       }
-
-      //   const currentSession = await this.account.getSession("current");
-
-      //   if (currentUser && currentSession) return { currentUser, currentSession };
     } catch (error) {
       return;
     }
   }
-
-  //   async socialLogin(provider) {
-  //     try {
-  //       this.account.createOAuth2Session(
-  //         provider,
-  //         `${config.clientUrl}`,
-  //         `${config.clientUrl}/login`
-  //       );
-  //     } catch (error) {
-  //       throw error.message;
-  //     }
-  //   }
-
-  // async deleteAccount(userId) {
-  //     try {
-  //         const status = await this.account.dele;
-  //         // console.log(status);
-  //         return status
-  //     } catch (error) {
-  //         throw `Something went wrong while delete account, ${error.message}`;
-  //     }
-  // }
 
   async logout() {
     try {
