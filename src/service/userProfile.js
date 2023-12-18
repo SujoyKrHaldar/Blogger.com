@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-catch */
-import { Client, Databases } from "appwrite";
+import { Client, Databases, Query } from "appwrite";
 import config from "../env";
 
 class UserProfile {
@@ -36,6 +36,20 @@ class UserProfile {
         config.appwriteDatabaseId,
         config.appwriteUserCollectionId,
         userId
+      );
+
+      return profile;
+    } catch (error) {
+      return;
+    }
+  }
+
+  async getProfileByUsername(username) {
+    try {
+      const profile = await this.databases.listDocuments(
+        config.appwriteDatabaseId,
+        config.appwriteUserCollectionId,
+        [Query.equal("username", [username])]
       );
 
       return profile;
