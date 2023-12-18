@@ -5,12 +5,12 @@ import { Outlet } from "react-router-dom";
 import { Layout, SplashScreen } from "./components";
 import {
   ACTIVATE_PROFILE,
+  DISABLE_PROFILE,
   LOGIN,
   LOGOUT,
   SHOW_NOTIFICATION,
-  DISABLE_PROFILE,
 } from "./global";
-import { authService, userProfile } from "./service";
+import { authService } from "./service";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -18,19 +18,14 @@ function App() {
 
   const checkAuth = async () => {
     try {
-      const userData = await authService.getCurrentUser();
+      const { userData, profileData } = await authService.getCurrentUser();
 
       if (userData) {
-        const profile = await userProfile.getProfile(userData.$id);
-
-        if (profile) {
-          dispatch(ACTIVATE_PROFILE(profile));
-        } else {
-          dispatch(DISABLE_PROFILE());
-        }
+        profileData
+          ? dispatch(ACTIVATE_PROFILE(profileData))
+          : dispatch(DISABLE_PROFILE());
 
         dispatch(LOGIN(userData));
-
         dispatch(
           SHOW_NOTIFICATION({
             message: `Welcome back ${userData.name} ✌️`,
