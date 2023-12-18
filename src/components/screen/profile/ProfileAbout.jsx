@@ -6,7 +6,7 @@ function ProfileAbout({ isProfileOwner, about, name }) {
   return (
     <>
       {about ? (
-        <div className="">
+        <div className="p-8  border border-gray-400">
           <p
             className={`max-w-3xl leading-8 ${
               !isProfileOwner && "text-center mx-auto"
