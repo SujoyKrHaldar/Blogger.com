@@ -5,14 +5,7 @@ const authAction = {
   },
   Logout: (state) => {
     state.authStatus = false;
-    state.isActivated = false;
     state.userData = null;
-  },
-  activateProfile: (state) => {
-    state.isActivated = true;
-  },
-  disableProfile: (state) => {
-    state.isActivated = false;
   },
 };
 
