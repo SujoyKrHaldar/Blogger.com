@@ -123,7 +123,7 @@ function ProfileBody({ profile }) {
                 </CtaBtn>
               </div>
             ) : (
-              <div className="text-center space-y-4 py-8 space-y-4">
+              <div className="text-center space-y-4 py-8">
                 <div className="w-[130px] h-auto mx-auto">
                   <Image src="/no-data.png" />
                 </div>
