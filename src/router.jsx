@@ -50,25 +50,6 @@ const router = createBrowserRouter([
           </SemiProtectedRoute>
         ),
       },
-
-      {
-        path: "/profile/:userId",
-        element: (
-          <PrivateRoute>
-            <Profile />
-          </PrivateRoute>
-        ),
-      },
-      // {
-      //   path: "/profile/:userId",
-      //   element: <Profile />,
-      // },
-
-      // {
-      //   path: "/author/:username",
-      //   element: <Profile />,
-      // },
-
       {
         path: "/dashboard",
         element: (
@@ -77,7 +58,10 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-
+      {
+        path: "/author/:username",
+        element: <Profile />,
+      },
       {
         path: "/feed",
         element: <Feed />,
@@ -86,7 +70,6 @@ const router = createBrowserRouter([
         path: "/search",
         element: <Search />,
       },
-
       {
         path: "*",
         element: <PageNotFound />,
