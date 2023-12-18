@@ -4,6 +4,7 @@ import CtaBtn from "../../shared/CtaBtn";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import ProfileAbout from "./ProfileAbout";
 
 function ProfileBody({ profile }) {
   const { authStatus, userData } = useSelector((state) => state.auth);
@@ -105,35 +106,11 @@ function ProfileBody({ profile }) {
         )}
 
         {currentTab === "About" && (
-          <>
-            {isProfileOwner ? (
-              <div className="text-center space-y-4 py-16 pt-8 border border-gray-400">
-                <div className="w-[250px] h-auto mx-auto">
-                  <Image src="/about-user.png" />
-                </div>
-                <h2 className="text-2xl font-bold">
-                  Tell the world about yourself
-                </h2>
-                <p className="max-w-xl mx-auto">
-                  Here you can share more about yourself: your history, work
-                  experience, accomplishments, interests, dreams, and more.
-                </p>
-                <CtaBtn url="/dashboard" className="text-white">
-                  About Yourself
-                </CtaBtn>
-              </div>
-            ) : (
-              <div className="text-center space-y-4 py-8">
-                <div className="w-[130px] h-auto mx-auto">
-                  <Image src="/no-data.png" />
-                </div>
-
-                <p className="py-2 px-8 rounded-xl w-fit mx-auto bg-gray-100 border border-gray-200">
-                  {profile.name} has not written any Bio.
-                </p>
-              </div>
-            )}
-          </>
+          <ProfileAbout
+            isProfileOwner={isProfileOwner}
+            name={profile.name}
+            about={profile.about}
+          />
         )}
       </section>
       <div className="bg-white w-full h-[70px] border-t border-b border-gray-500 py-4"></div>
