@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import Image from "../../shared/Image";
-import CtaBtn from "../../shared/CtaBtn";
-import { useSelector } from "react-redux";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import CtaBtn from "../../shared/CtaBtn";
+import Image from "../../shared/Image";
 import ProfileAbout from "./ProfileAbout";
 import ProfileArticle from "./ProfileArticle";
+import ProfileNavbar from "./ProfileNavbar";
 
 function ProfileBody({ profile }) {
   const { authStatus, userData } = useSelector((state) => state.auth);
@@ -28,42 +28,19 @@ function ProfileBody({ profile }) {
     },
   ];
 
+  const navigateTabs = (tab) => {
+    setCurrentTab(tab);
+  };
+
   return (
     <>
       <section className="container min-h-full py-8 pt-4 space-y-8 overflow-all">
-        <div
-          className={`flex items-center border-b border-t border-gray-400 ${
-            isProfileOwner ? "justify-between" : "justify-center"
-          }`}
-        >
-          <div className="flex items-center justify-center">
-            {tabs.map(
-              (tab) =>
-                tab.active && (
-                  <p
-                    key={tab.name}
-                    className={`py-3 px-8 cursor-pointer border-l border-r duration-300 ease-in-out ${
-                      tab.name === currentTab
-                        ? "border-gray-400 bg-gray-100"
-                        : "border-transparent"
-                    }`}
-                    onClick={() => setCurrentTab(tab.name)}
-                  >
-                    {tab.name}
-                  </p>
-                )
-            )}
-          </div>
-
-          {isProfileOwner && (
-            <Link
-              to="/dashboard"
-              className="py-3 px-8 cursor-pointer border-l border-r border-gray-400 bg-gray-100"
-            >
-              Edit Profile
-            </Link>
-          )}
-        </div>
+        <ProfileNavbar
+          isProfileOwner={isProfileOwner}
+          tabs={tabs}
+          navigateTabs={navigateTabs}
+          currentTab={currentTab}
+        />
 
         {currentTab === "Article" && (
           <ProfileArticle
