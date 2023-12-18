@@ -12,39 +12,49 @@ function Profile() {
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const { userData, isActivated, authStatus } = useSelector(
-    (state) => state.auth
-  );
+  const { userData, authStatus } = useSelector((state) => state.auth);
+  const { profileData, isActivated } = useSelector((state) => state.profile);
 
-  const getUserProfile = async () => {
-    try {
-      const data = await userProfile.getProfile(userData.$id);
-      setProfile(data);
-    } finally {
-      setLoading(false);
-    }
-  };
+  // TODO:
+  // 1. Auth user can view its profile at profile/:userid ( protected route ) and /author/:username ( public route)
+  // 2. For profile/:userId we need to show data from redux store. data will stored along with userdata ( auth user data)
+  //    while manual login or autologin while refreshing (App.jsx ) or while creating public profile ( /get-started )
+  // 3. While accessing this component through /author/:username, just fetch data in this component only using
+  //    useEffect or react-query ( in future) fetch data from query parameter ( :username )
 
-  useEffect(() => {
-    getUserProfile();
-  }, []);
+  // const getUserProfile = async () => {
+  //   try {
+  //     const data = await userProfile.getProfile(userData.$id);
+  //     setProfile(data);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   getUserProfile();
+  // }, []);
 
   return (
     <>
       <MetaTags
-        conicalRoute={`/author/${profile?.username}`}
-        title={`${profile?.name} - Blogger.com`}
-        description={`${profile?.bio}`}
+        conicalRoute={`/author/${profileData?.username}`}
+        title={
+          profileData.name
+            ? `${profileData?.name} - Blogger.com`
+            : "Blogger.com"
+        }
+        description={profileData.bio ? `${profileData?.bio}` : ""}
       />
 
-      {loading ? (
+      {/* {loading ? (
         <SplashScreen loading={loading} title="Loading" />
-      ) : (
-        <>
-          <ProfileHeader profile={profile} />
-          <ProfileBody />
-        </>
-      )}
+      ) : ( */}
+      <>
+        <ProfileHeader profile={profileData} />
+        <ProfileBody />
+      </>
+      {/* )}*/}
     </>
   );
 }

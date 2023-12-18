@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
+import { assetService } from "../../../service";
 import Image from "../../shared/Image";
 
 function ProfileHeader({ profile }) {
+  const imgSrc = assetService.getAssetPreview(profile.profilePicId);
+
   return (
     <section className="min-h-full pb-4">
       <div className="w-full h-[250px] overflow-hidden">
@@ -13,8 +16,7 @@ function ProfileHeader({ profile }) {
           <div className="w-[150px] h-[150px] mx-auto rounded-full overflow-hidden p-2 bg-white">
             <Image
               className="rounded-full"
-              src="/default-avatar.png"
-              // src="https://plus.unsplash.com/premium_photo-1675034393381-7e246fc40755?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src={profile.profilePicId ? imgSrc : "/default-avatar.png"}
             />
           </div>
           <p className=" text-green-600">@{profile?.username}</p>
