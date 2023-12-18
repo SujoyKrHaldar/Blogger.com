@@ -8,9 +8,8 @@ const GuestRoute = ({ children, redirectOnAuthSuccess }) => {
 };
 
 const SemiProtectedRoute = ({ children, redirectOnSuccess }) => {
-  const { authStatus, userData, isActivated } = useSelector(
-    (state) => state.auth
-  );
+  const { authStatus, userData } = useSelector((state) => state.auth);
+  const { isActivated } = useSelector((state) => state.profile);
 
   return !authStatus ? (
     <Navigate to="/login" />
@@ -22,7 +21,8 @@ const SemiProtectedRoute = ({ children, redirectOnSuccess }) => {
 };
 
 const PrivateRoute = ({ children }) => {
-  const { authStatus, isActivated } = useSelector((state) => state.auth);
+  const { authStatus } = useSelector((state) => state.auth);
+  const { isActivated } = useSelector((state) => state.profile);
 
   return !authStatus ? (
     <Navigate to="/login" />
