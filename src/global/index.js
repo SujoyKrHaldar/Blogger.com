@@ -1,9 +1,5 @@
-import {
-  ACTIVATE_PROFILE,
-  DISABLE_PROFILE,
-  LOGIN,
-  LOGOUT,
-} from "./slices/authSlice";
+import { LOGIN, LOGOUT } from "./slices/authSlice";
+import { ACTIVATE_PROFILE, DISABLE_PROFILE } from "./slices/profileSlice";
 import {
   HIDE_NOTIFICATION,
   SHOW_LOADING,
@@ -11,12 +7,11 @@ import {
 } from "./slices/notificationSlice";
 
 export {
-  ACTIVATE_PROFILE,
-  DISABLE_PROFILE,
-  HIDE_NOTIFICATION,
   LOGIN,
   LOGOUT,
+  ACTIVATE_PROFILE,
+  DISABLE_PROFILE,
   SHOW_LOADING,
-  SHOW_NOTIFICATION
+  SHOW_NOTIFICATION,
+  HIDE_NOTIFICATION,
 };
-
