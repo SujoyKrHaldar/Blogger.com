@@ -1,25 +1,6 @@
 import { ArticleList, MetaTags, Image } from "../../components";
-// import { useEffect, useState } from "react";
 
 function Feed() {
-  // const [data, setData] = useState([]);
-
-  // const fetchData = async () => {
-  //   // API LINK: https://www.slingacademy.com/article/sample-blog-posts-public-rest-api-for-practice/
-  //   const response = await fetch(
-  //     "https://api.slingacademy.com/v1/sample-data/blog-posts?limit=15"
-  //   );
-
-  //   if (response.ok) {
-  //     const { blogs } = await response.json();
-  //     setData(blogs);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
   return (
     <>
       <MetaTags
