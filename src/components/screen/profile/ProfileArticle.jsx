@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import Image from "../../shared/Image";
-import CtaBtn from "../../shared/CtaBtn";
+import ProfileFallbackUI from "./ProfileFallbackUI";
 
 function ProfileArticle({ isProfileOwner, name, article }) {
   return (
@@ -8,18 +8,13 @@ function ProfileArticle({ isProfileOwner, name, article }) {
       {article ? (
         ""
       ) : isProfileOwner ? (
-        <div className="text-center space-y-4 py-16 pt-8 border border-gray-400">
-          <div className="w-[230px] h-auto mx-auto">
-            <Image src="/create-post.png" />
-          </div>
-          <h2 className="text-2xl font-bold">Write something</h2>
-          <p className="max-w-sm mx-auto">
-            Looking to share your experience and join in the community?
-          </p>
-          <CtaBtn url="/create" className="text-white">
-            Share a Post
-          </CtaBtn>
-        </div>
+        <ProfileFallbackUI
+          title="Write something"
+          description=" Looking to share your experience and join in the community? write something and get started."
+          redirectText=" Share a Post"
+          redirectTo="/create"
+          imgSrc="/create-post.png"
+        />
       ) : (
         <div className="text-center py-8 space-y-4">
           <div className="w-[130px] h-auto mx-auto">

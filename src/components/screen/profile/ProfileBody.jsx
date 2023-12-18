@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import CtaBtn from "../../shared/CtaBtn";
-import Image from "../../shared/Image";
 import ProfileAbout from "./ProfileAbout";
 import ProfileArticle from "./ProfileArticle";
 import ProfileNavbar from "./ProfileNavbar";
+import ProfileFallbackUI from "./ProfileFallbackUI";
 
 function ProfileBody({ profile }) {
   const { authStatus, userData } = useSelector((state) => state.auth);
@@ -51,16 +50,12 @@ function ProfileBody({ profile }) {
         )}
 
         {currentTab === "Saved" && (
-          <div className="text-center space-y-4 py-16 pt-8 border border-gray-400">
-            <div className="w-[250px] h-auto mx-auto">
-              <Image src="/save-post.png" />
-            </div>
-            <h2 className="text-2xl font-bold">No saved post found</h2>
-
-            <CtaBtn url="/feed" className="text-white">
-              Browse Posts
-            </CtaBtn>
-          </div>
+          <ProfileFallbackUI
+            title="No saved post found"
+            redirectText=" Browse Posts"
+            redirectTo="/feed"
+            imgSrc="/save-post.png"
+          />
         )}
 
         {currentTab === "About" && (

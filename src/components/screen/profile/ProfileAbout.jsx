@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import CtaBtn from "../../shared/CtaBtn";
 import Image from "../../shared/Image";
+import ProfileFallbackUI from "./ProfileFallbackUI";
 
 function ProfileAbout({ isProfileOwner, about, name }) {
   return (
@@ -16,19 +16,14 @@ function ProfileAbout({ isProfileOwner, about, name }) {
           </p>
         </div>
       ) : isProfileOwner ? (
-        <div className="text-center space-y-4 py-16 pt-8 border border-gray-400">
-          <div className="w-[250px] h-auto mx-auto">
-            <Image src="/about-user.png" />
-          </div>
-          <h2 className="text-2xl font-bold">Tell the world about yourself</h2>
-          <p className="max-w-xl mx-auto">
-            Here you can share more about yourself: your history, work
-            experience, accomplishments, interests, dreams, and more.
-          </p>
-          <CtaBtn url="/dashboard" className="text-white">
-            About Yourself
-          </CtaBtn>
-        </div>
+        <ProfileFallbackUI
+          title="Tell the world about yourself"
+          description="Here you can share more about yourself: your history, work
+             experience, accomplishments, interests, dreams, and more."
+          redirectText="About Yourself"
+          redirectTo="/dashboard"
+          imgSrc="/about-user.png"
+        />
       ) : (
         <div className="text-center space-y-4 py-8">
           <div className="w-[130px] h-auto mx-auto">
