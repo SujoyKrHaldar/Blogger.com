@@ -19,10 +19,12 @@ function App() {
   const checkAuth = async () => {
     try {
       const userData = await authService.getCurrentUser();
+
       if (userData) {
         const profile = await userProfile.getProfile(userData.$id);
+
         if (profile) {
-          dispatch(ACTIVATE_PROFILE());
+          dispatch(ACTIVATE_PROFILE(profile));
         } else {
           dispatch(DISABLE_PROFILE());
         }
@@ -60,10 +62,12 @@ function App() {
 
   return (
     <>
-      <Layout>
-        <SplashScreen loading={loading} />
-        {!loading ? <Outlet /> : null}
-      </Layout>
+      <SplashScreen loading={loading} />
+      {!loading ? (
+        <Layout>
+          <Outlet />
+        </Layout>
+      ) : null}
     </>
   );
 }
