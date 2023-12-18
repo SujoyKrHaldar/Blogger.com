@@ -5,7 +5,7 @@ function ShowError({ error, errorMessage, closeError }) {
   return (
     <div
       className={`w-full px-5 pr-3 bg-red-500 text-white rounded-lg duration-200 ease-in-out
-    ${error ? "pt-3 pb-4 h-auto" : "py-0 h-0"}`}
+    ${error ? "pt-3 pb-4 h-auto opacity-100" : "py-0 h-0 opacity-0"}`}
     >
       <div className="space-y-1">
         <div className="flex items-center justify-between">

@@ -14,6 +14,7 @@ import SearchInput from "./shared/SearchInput";
 import SkeletonCard from "./shared/SkeletonCard";
 import SplashScreen from "./shared/SplashScreen";
 import SubmitBtn from "./shared/SubmitBtn";
+import ShowError from "./shared/ShowError";
 
 import AuthUI from "./screen/auth/AuthUI";
 import HomeLanding from "./screen/home/HomeLanding";
@@ -28,6 +29,6 @@ import {
 
 export {
   ArticleCard, ArticleList, AuthUI, CtaBtn, GuestRoute, HomeLanding, Image, Input, Layout,
-  LoginForm, MetaTags, Notification, PrivateRoute, ProfileBody,
+  LoginForm, MetaTags, Notification, PrivateRoute, ProfileBody, ShowError,
   ProfileHeader, SearchInput, SemiProtectedRoute, SignupForm, SkeletonCard, SplashScreen, SubmitBtn
 };
