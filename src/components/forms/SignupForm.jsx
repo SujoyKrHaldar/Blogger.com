@@ -24,13 +24,13 @@ function SignupForm() {
     try {
       const session = await authService.createUser(data);
       if (session) {
-        const userData = await authService.getCurrentUser();
+        const { userData } = await authService.getCurrentUser();
 
         if (userData) {
           dispatch(LOGIN(userData));
           dispatch(
             SHOW_NOTIFICATION({
-              message: `Welcome ${userData.name} ✌️. Now setup your Public Profile.`,
+              message: `Welcome ${userData.name}. Now setup your Profile.`,
               type: "SUCCESS",
             })
           );
