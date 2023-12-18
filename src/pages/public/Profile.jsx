@@ -4,7 +4,7 @@ import {
   MetaTags,
   ProfileBody,
   ProfileHeader,
-  SplashScreen,
+  ProfileSkeletonUI,
 } from "../../components";
 import { useFetchProfile } from "../../hooks";
 import PageNotFound from "./PageNotFound";
@@ -21,8 +21,9 @@ function Profile() {
         description={profile?.bio ? `${profile?.bio}` : ""}
       />
 
-      <SplashScreen loading={loading} />
-      {loading ? null : notFound ? (
+      {loading ? (
+        <ProfileSkeletonUI />
+      ) : notFound ? (
         <PageNotFound />
       ) : (
         <>
