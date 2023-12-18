@@ -26,14 +26,14 @@ function Home() {
       />
 
       <HomeLanding />
-      <section className="min-h-full">
+      {/* <section className="min-h-full">
         <ArticleList
           data={data}
           title="Trending Posts"
           url="/feed"
           urlText="Discover all"
         />
-      </section>
+      </section> */}
     </>
   );
 }
