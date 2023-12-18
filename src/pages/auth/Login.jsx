@@ -5,7 +5,7 @@ function Login() {
   return (
     <>
       <MetaTags
-        title="Login - Blogger.com"
+        title="Login • Blogger.com"
         description="Login to your account"
         conicalRoute="/login"
       />

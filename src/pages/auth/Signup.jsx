@@ -5,7 +5,7 @@ function Signup() {
   return (
     <>
       <MetaTags
-        title="Signup - Blogger.com"
+        title="Signup • Blogger.com"
         description="Create your account"
         conicalRoute="/signup"
       />

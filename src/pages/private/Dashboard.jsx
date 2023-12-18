@@ -4,7 +4,7 @@ function Dashboard() {
   return (
     <>
       <MetaTags
-        title="Dashboard - Blogger.com"
+        title="Dashboard • Blogger.com"
         description="manage account"
         conicalRoute="/dashboard"
       />

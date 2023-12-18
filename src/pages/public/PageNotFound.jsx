@@ -3,7 +3,7 @@ import { CtaBtn, MetaTags } from "../../components";
 function PageNotFound() {
   return (
     <>
-      <MetaTags title="404 - Page not found" />
+      <MetaTags title="404 • Page not found" />
 
       <section className="flex items-center ">
         <div className="absolute top-0 right-0 w-1/3 h-full border-l border-gray-500">
