@@ -1,7 +1,8 @@
 /* eslint-disable no-constant-condition */
 /* eslint-disable no-useless-catch */
-import { Client, Account, ID } from "appwrite";
+import { Account, Client, ID } from "appwrite";
 import config from "../env";
+import userProfile from "./userProfile";
 
 class AuthService {
   client = new Client();
@@ -26,7 +27,6 @@ class AuthService {
         return this.login({ email, password });
       }
     } catch (error) {
-
       if (error.type === "user_already_exists" || "user_email_already_exists")
         throw "User with the same email already exists.";
 
@@ -48,9 +48,12 @@ class AuthService {
 
   async getCurrentUser() {
     try {
-      const currentUser = await this.account.get();
-      if (currentUser) {
-        return currentUser;
+      const userData = await this.account.get();
+      if (userData) {
+        const profileData = await userProfile.getProfile(userData.$id);
+        if (profileData) return { userData, profileData };
+
+        return { userData };
       }
     } catch (error) {
       return;
