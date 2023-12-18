@@ -3,16 +3,16 @@ import CtaBtn from "../shared/CtaBtn";
 import Image from "../shared/Image";
 
 import { useSelector, useDispatch } from "react-redux";
-import { authService } from "../../service";
+import { assetService, authService } from "../../service";
 import { LOGOUT, SHOW_NOTIFICATION, SHOW_LOADING } from "../../global";
 import { useState } from "react";
-import { IoMdClose } from "react-icons/io";
 import SearchInput from "../shared/SearchInput";
+import { IconClose } from "../../assets/icons";
 
 function Navbar() {
-  const { authStatus, userData, isActivated } = useSelector(
-    (state) => state.auth
-  );
+  const { authStatus, userData } = useSelector((state) => state.auth);
+  const { profileData, isActivated } = useSelector((state) => state.profile);
+
   const dispatch = useDispatch();
 
   const [isOpen, setOpen] = useState(false);
@@ -21,7 +21,6 @@ function Navbar() {
     setOpen(!isOpen);
 
     try {
-      2;
       dispatch(
         SHOW_LOADING({ message: "Logging you out...", type: "WARNING" })
       );
@@ -37,6 +36,8 @@ function Navbar() {
       dispatch(SHOW_NOTIFICATION({ message: error, type: "ERROR" }));
     }
   };
+
+  const imgSrc = assetService.getAssetPreview(profileData?.profilePicId || "");
 
   return (
     <>
@@ -75,7 +76,11 @@ function Navbar() {
                   className="bg-white border-2 border-green-700 w-12 h-12 rounded-full overflow-hidden -ml-4 cursor-pointer"
                 >
                   <Image
-                    src="/default-avatar.png"
+                    src={
+                      isActivated && profileData.profilePicId
+                        ? imgSrc
+                        : "/default-avatar.png"
+                    }
                     alt="avatar"
                     className="scale-125"
                   />
@@ -113,7 +118,7 @@ function Navbar() {
             className="z-10 text-xl text-gray-400 cursor-pointer absolute p-2
             rounded-full border border-gray-400 -left-4 top-8 bg-white"
           >
-            <IoMdClose />
+            <IconClose />
           </div>
 
           <div className="flex flex-col  justify-between w-full h-full ">
@@ -121,7 +126,11 @@ function Navbar() {
               <div className="flex items-center gap-4 py-4 px-10 border-b border-gray-400">
                 <div className="bg-white border border-gray-400 w-16 h-16 rounded-full overflow-hidden">
                   <Image
-                    src="/default-avatar.png"
+                    src={
+                      isActivated && profileData.profilePicId
+                        ? imgSrc
+                        : "/default-avatar.png"
+                    }
                     alt="avatar"
                     className="scale-125"
                   />
