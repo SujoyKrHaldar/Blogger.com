@@ -1,12 +1,15 @@
+/* eslint-disable react/prop-types */
 import Image from "../../shared/Image";
 import CtaBtn from "../../shared/CtaBtn";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function ProfileBody() {
-  const { authStatus } = useSelector((state) => state.auth);
+function ProfileBody({ profile }) {
+  const { authStatus, userData } = useSelector((state) => state.auth);
   const [currentTab, setCurrentTab] = useState("Article");
+
+  const isProfileOwner = authStatus && profile.$id === userData.$id;
 
   const tabs = [
     {
@@ -15,7 +18,7 @@ function ProfileBody() {
     },
     {
       name: "Saved",
-      active: authStatus,
+      active: isProfileOwner,
     },
     {
       name: "About",
@@ -28,7 +31,7 @@ function ProfileBody() {
       <section className="container min-h-full py-8 pt-4 space-y-8 overflow-all">
         <div
           className={`flex items-center border-b border-t border-gray-400 ${
-            authStatus ? "justify-between" : "justify-center"
+            isProfileOwner ? "justify-between" : "justify-center"
           }`}
         >
           <div className="flex items-center justify-center">
@@ -50,7 +53,7 @@ function ProfileBody() {
             )}
           </div>
 
-          {authStatus && (
+          {isProfileOwner && (
             <Link
               to="/dashboard"
               className="py-3 px-8 cursor-pointer border-l border-r border-gray-400 bg-gray-100"
@@ -62,7 +65,7 @@ function ProfileBody() {
 
         {currentTab === "Article" && (
           <>
-            {authStatus ? (
+            {isProfileOwner ? (
               <div className="text-center space-y-4 py-16 pt-8 border border-gray-400">
                 <div className="w-[230px] h-auto mx-auto">
                   <Image src="/create-post.png" />
@@ -81,7 +84,7 @@ function ProfileBody() {
                   <Image src="/no-data.png" />
                 </div>
                 <p className="py-2 px-8 rounded-xl w-fit mx-auto bg-gray-100 border border-gray-200">
-                  Sujoy kumar haldar has not written any stories yet.
+                  {profile.name} has not written any stories yet.
                 </p>
               </div>
             )}
@@ -103,7 +106,7 @@ function ProfileBody() {
 
         {currentTab === "About" && (
           <>
-            {authStatus ? (
+            {isProfileOwner ? (
               <div className="text-center space-y-4 py-16 pt-8 border border-gray-400">
                 <div className="w-[250px] h-auto mx-auto">
                   <Image src="/about-user.png" />
@@ -112,8 +115,8 @@ function ProfileBody() {
                   Tell the world about yourself
                 </h2>
                 <p className="max-w-xl mx-auto">
-                  Here’s where you can share more about yourself: your history,
-                  work experience, accomplishments, interests, dreams, and more.
+                  Here you can share more about yourself: your history, work
+                  experience, accomplishments, interests, dreams, and more.
                 </p>
                 <CtaBtn url="/dashboard" className="text-white">
                   About Yourself
@@ -126,7 +129,7 @@ function ProfileBody() {
                 </div>
 
                 <p className="py-2 px-8 rounded-xl w-fit mx-auto bg-gray-100 border border-gray-200">
-                  Sujoy kumar haldar has not written any Bio.
+                  {profile.name} has not written any Bio.
                 </p>
               </div>
             )}

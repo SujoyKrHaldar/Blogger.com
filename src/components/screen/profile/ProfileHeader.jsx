@@ -3,7 +3,9 @@ import { assetService } from "../../../service";
 import Image from "../../shared/Image";
 
 function ProfileHeader({ profile }) {
-  const imgSrc = assetService.getAssetPreview(profile.profilePicId);
+  const imgSrc = profile?.profilePicId
+    ? assetService.getAssetPreview(profile.profilePicId)
+    : "/default-avatar.png";
 
   return (
     <section className="min-h-full pb-4">
@@ -14,10 +16,7 @@ function ProfileHeader({ profile }) {
       <div className="container -mt-20">
         <div className="text-center space-y-3">
           <div className="w-[150px] h-[150px] mx-auto rounded-full overflow-hidden p-2 bg-white">
-            <Image
-              className="rounded-full"
-              src={profile.profilePicId ? imgSrc : "/default-avatar.png"}
-            />
+            <Image className="rounded-full" src={imgSrc} />
           </div>
           <p className=" text-green-600">@{profile?.username}</p>
           <h1 className="text-4xl font-semibold">{profile?.name}</h1>

@@ -1,60 +1,65 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import {
   MetaTags,
-  ProfileHeader,
   ProfileBody,
+  ProfileHeader,
   SplashScreen,
 } from "../../components";
 import { userProfile } from "../../service";
-import { useSelector } from "react-redux";
+import PageNotFound from "./PageNotFound";
 
 function Profile() {
+  const { username } = useParams();
+
   const [profile, setProfile] = useState({});
+  const [notFound, setNotFound] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  const { userData, authStatus } = useSelector((state) => state.auth);
-  const { profileData, isActivated } = useSelector((state) => state.profile);
-
   // TODO:
-  // 1. Auth user can view its profile at profile/:userid ( protected route ) and /author/:username ( public route)
-  // 2. For profile/:userId we need to show data from redux store. data will stored along with userdata ( auth user data)
-  //    while manual login or autologin while refreshing (App.jsx ) or while creating public profile ( /get-started )
   // 3. While accessing this component through /author/:username, just fetch data in this component only using
   //    useEffect or react-query ( in future) fetch data from query parameter ( :username )
 
-  // const getUserProfile = async () => {
-  //   try {
-  //     const data = await userProfile.getProfile(userData.$id);
-  //     setProfile(data);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
+  const getUserProfile = async () => {
+    if (!username) {
+      setNotFound(true);
+      return;
+    }
+    try {
+      const { documents } = await userProfile.getProfileByUsername(username);
 
-  // useEffect(() => {
-  //   getUserProfile();
-  // }, []);
+      if (documents[0]) {
+        setProfile(documents[0]);
+      } else {
+        setNotFound(true);
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getUserProfile();
+  }, [username]);
 
   return (
     <>
       <MetaTags
-        conicalRoute={`/author/${profileData?.username}`}
-        title={
-          profileData.name
-            ? `${profileData?.name} - Blogger.com`
-            : "Blogger.com"
-        }
-        description={profileData.bio ? `${profileData?.bio}` : ""}
+        conicalRoute={`/author/${username}`}
+        title={profile?.name ? `${profile?.name} • Blogger.com` : "Blogger.com"}
+        description={profile?.bio ? `${profile?.bio}` : ""}
       />
 
-      {/* {loading ? (
-        <SplashScreen loading={loading} title="Loading" />
-      ) : ( */}
-      <>
-        <ProfileHeader profile={profileData} />
-        <ProfileBody />
-      </>
-      {/* )}*/}
+      <SplashScreen loading={loading} />
+      {loading ? null : notFound ? (
+        <PageNotFound />
+      ) : (
+        <>
+          <ProfileHeader profile={profile} />
+          <ProfileBody profile={profile} />
+        </>
+      )}
     </>
   );
 }
