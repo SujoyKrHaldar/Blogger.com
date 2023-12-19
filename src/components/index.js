@@ -10,11 +10,8 @@ import CtaBtn from "./shared/CtaBtn";
 import Image from "./shared/Image";
 import Input from "./shared/Input";
 import MetaTags from "./shared/MetaTags";
-import ProfileSkeletonUI from "./shared/ProfileSkeletonUI";
 import SearchInput from "./shared/SearchInput";
 import ShowError from "./shared/ShowError";
-import SkeletonCard from "./shared/SkeletonCard";
-import SplashScreen from "./shared/SplashScreen";
 import SubmitBtn from "./shared/SubmitBtn";
 
 import AuthUI from "./screen/auth/AuthUI";
@@ -27,6 +24,10 @@ import {
   PrivateRoute,
   SemiProtectedRoute,
 } from "./routes/ProtectedRoutes";
+
+import SkeletonCard from "./loading-screen/SkeletonCard";
+import SplashScreen from "./loading-screen/SplashScreen";
+import ProfileSkeletonUI from "./loading-screen/ProfileSkeletonUI";
 
 export {
   ArticleCard,
@@ -42,10 +43,14 @@ export {
   MetaTags,
   Notification,
   PrivateRoute,
-  ProfileBody, ProfileHeader, ProfileSkeletonUI, SearchInput,
-  SemiProtectedRoute, ShowError, SignupForm,
+  ProfileBody,
+  ProfileHeader,
+  ProfileSkeletonUI,
+  SearchInput,
+  SemiProtectedRoute,
+  ShowError,
+  SignupForm,
   SkeletonCard,
   SplashScreen,
-  SubmitBtn
+  SubmitBtn,
 };
-
