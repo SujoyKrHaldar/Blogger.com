@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import ArticleCard from "./ArticleCard";
 import CtaBtn from "./CtaBtn";
-import SkeletonCard from "./SkeletonCard";
+import SkeletonCard from "../loading-screen/SkeletonCard";
 
 function ArticleList({ title = "", data, url = "", urlText = "" }) {
   return (
