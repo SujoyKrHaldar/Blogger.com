@@ -34,7 +34,7 @@ function Navbar() {
         SHOW_LOADING({ message: "Logging you out...", type: "WARNING" })
       );
 
-      await authService.logout();
+      await authService.deleteSession();
 
       dispatch(LOGOUT());
       dispatch(DISABLE_PROFILE());
@@ -46,7 +46,12 @@ function Navbar() {
         })
       );
     } catch (error) {
-      dispatch(SHOW_NOTIFICATION({ message: error, type: "ERROR" }));
+      dispatch(
+        SHOW_NOTIFICATION({
+          message: "Logout failed. Please try again later.",
+          type: "ERROR",
+        })
+      );
     }
   };
 
