@@ -60,11 +60,28 @@ class AuthService {
     }
   }
 
-  async logout() {
+  async getCurrentSession() {
     try {
-      await this.account.deleteSession("current");
+      return await this.account.getSession("current");
     } catch (error) {
-      throw "Logout failed. Please try again later.";
+      return;
+    }
+  }
+
+  async getAllSession() {
+    try {
+      const sessionList = await this.account.listSessions();
+      return sessionList;
+    } catch (error) {
+      return;
+    }
+  }
+
+  async deleteSession(sessionId = "current") {
+    try {
+      await this.account.deleteSession(sessionId);
+    } catch (error) {
+      throw error.message;
     }
   }
 }
