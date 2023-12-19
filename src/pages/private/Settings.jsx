@@ -1,7 +1,11 @@
-import { MetaTags } from "../../components";
-import DashboardNavbar from "../../components/screen/dashboard/DashboardNavbar";
+import { MetaTags, SettingsBody, SettingsLayout } from "../../components";
+import { useLocation } from "react-router-dom";
 
 function Settings() {
+  const location = useLocation();
+  const searchQuery = new URLSearchParams(location.search);
+  const tab = searchQuery.get("tab");
+
   return (
     <>
       <MetaTags
@@ -10,9 +14,9 @@ function Settings() {
         conicalRoute="/Settings"
       />
 
-      <section className="container w-full h-screen py-0">
-        <DashboardNavbar />
-      </section>
+      <SettingsLayout tab={tab}>
+        <SettingsBody tab={tab} />
+      </SettingsLayout>
     </>
   );
 }
