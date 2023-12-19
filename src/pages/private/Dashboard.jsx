@@ -9,7 +9,7 @@ function Dashboard() {
         conicalRoute="/dashboard"
       />
 
-      <section className="py-24 container">
+      <section className="container py-24">
         <h2>Dashboard</h2>
       </section>
     </>
