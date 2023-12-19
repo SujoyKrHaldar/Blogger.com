@@ -60,6 +60,10 @@ function SideNavbar({
                   <NavLink onClick={toggelMenu} to="/dashboard">
                     <p>Dashboard</p>
                   </NavLink>
+
+                  <NavLink onClick={toggelMenu} to="/settings">
+                    <p>Settings</p>
+                  </NavLink>
                 </>
               ) : (
                 <Link to="/get-started">

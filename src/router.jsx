@@ -10,6 +10,7 @@ import {
   PageNotFound,
   Profile,
   Search,
+  Settings,
   Signup,
 } from "./pages";
 
@@ -51,10 +52,22 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/setup",
+        element: <GetStarted />,
+      },
+      {
         path: "/dashboard",
         element: (
           <PrivateRoute>
             <Dashboard />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/settings",
+        element: (
+          <PrivateRoute>
+            <Settings />
           </PrivateRoute>
         ),
       },
