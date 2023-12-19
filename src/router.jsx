@@ -52,10 +52,6 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/setup",
-        element: <GetStarted />,
-      },
-      {
         path: "/dashboard",
         element: (
           <PrivateRoute>
