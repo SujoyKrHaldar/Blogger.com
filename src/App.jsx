@@ -17,23 +17,29 @@ function App() {
   const dispatch = useDispatch();
 
   const checkAuth = async () => {
+    const loginNotification = sessionStorage.getItem("isLoggedin");
     try {
-      const { userData, profileData } = await authService.getCurrentUser();
+      const currentUser = await authService.getCurrentUser();
 
-      if (userData) {
-        profileData
-          ? dispatch(ACTIVATE_PROFILE(profileData))
+      if (currentUser?.userData) {
+        currentUser?.profileData
+          ? dispatch(ACTIVATE_PROFILE(currentUser.profileData))
           : dispatch(DISABLE_PROFILE());
 
-        dispatch(LOGIN(userData));
-        dispatch(
-          SHOW_NOTIFICATION({
-            message: `Welcome back ${userData.name} ✌️`,
-            type: "SUCCESS",
-          })
-        );
+        dispatch(LOGIN(currentUser.userData));
+
+        if (!loginNotification) {
+          dispatch(
+            SHOW_NOTIFICATION({
+              message: `Welcome back ${currentUser.userData.name} ✌️`,
+              type: "SUCCESS",
+            })
+          );
+          sessionStorage.setItem("isLoggedin", true);
+        }
       } else {
         dispatch(LOGOUT());
+        if (loginNotification) sessionStorage.removeItem("isLoggedin");
       }
     } finally {
       setLoading(false);
