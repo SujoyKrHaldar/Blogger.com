@@ -18,6 +18,8 @@ import AuthUI from "./screen/auth/AuthUI";
 import HomeLanding from "./screen/home/HomeLanding";
 import ProfileBody from "./screen/profile/ProfileBody";
 import ProfileHeader from "./screen/profile/ProfileHeader";
+import SettingsLayout from "./screen/settings/SettingsLayout";
+import SettingsBody from "./screen/settings/SettingsBody";
 
 import {
   GuestRoute,
@@ -53,4 +55,6 @@ export {
   SkeletonCard,
   SplashScreen,
   SubmitBtn,
+  SettingsLayout,
+  SettingsBody,
 };
