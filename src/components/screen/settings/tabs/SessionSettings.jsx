@@ -65,8 +65,9 @@ function SessionSettings() {
               <div
                 key={data.$id}
                 className={`py-4 px-6 bg-gray-100 flex items-start justify-between 
-                ${!data.current && "hover:border-black"}
-                ${data.current ? "border-2 border-green-500" : "border"}`}
+                ${!data.current && "hover:border-black"} border 
+                ${data.current ? "border-green-500" : "border-gray-300"}
+              `}
               >
                 <div className="space-y-1">
                   <p className="font-semibold text-xl">{data.ip}</p>
