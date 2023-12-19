@@ -31,7 +31,6 @@ function LoginForm() {
       const session = await authService.login(data);
       if (session) {
         const { userData, profileData } = await authService.getCurrentUser();
-
         if (userData) {
           profileData
             ? dispatch(ACTIVATE_PROFILE(profileData))
@@ -44,6 +43,7 @@ function LoginForm() {
               type: "SUCCESS",
             })
           );
+          sessionStorage.setItem("isLoggedin", true);
         }
       }
     } catch (error) {

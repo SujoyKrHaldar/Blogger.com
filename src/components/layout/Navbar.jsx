@@ -26,6 +26,9 @@ function Navbar() {
   const handleLogout = async () => {
     setOpen(!isOpen);
 
+    const loginNotification = sessionStorage.getItem("isLoggedin");
+    if (loginNotification) sessionStorage.removeItem("isLoggedin");
+
     try {
       dispatch(
         SHOW_LOADING({ message: "Logging you out...", type: "WARNING" })
