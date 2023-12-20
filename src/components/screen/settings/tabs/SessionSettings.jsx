@@ -64,9 +64,12 @@ function SessionSettings() {
             {sessionList.map((data) => (
               <div
                 key={data.$id}
-                className={`py-4 px-6 bg-gray-100 flex items-start justify-between 
-                ${!data.current && "hover:border-black"} border 
-                ${data.current ? "border-green-500" : "border-gray-300"}
+                className={`py-4 px-6 bg-gray-100 flex items-start justify-between border 
+                ${
+                  data.current
+                    ? "border-green-500"
+                    : "border-gray-300 hover:border-black"
+                }
               `}
               >
                 <div className="space-y-1">
@@ -81,7 +84,7 @@ function SessionSettings() {
                   </p>
                 </div>
                 {data.current ? (
-                  <div className="bg-green-500 text-white rounded-full flex items-center gap-1 pr-4 pl-2 py-2">
+                  <div className="bg-green-700 text-white rounded-full flex items-center gap-1 pr-4 pl-2 py-2">
                     <IconSuccess />
                     <p className="text-xs italic">Current Session</p>
                   </div>
