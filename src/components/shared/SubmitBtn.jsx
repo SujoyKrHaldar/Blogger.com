@@ -12,11 +12,7 @@ function SubmitBtn({
     <button
       type="submit"
       className={`w-full px-5 pt-4 pb-4 flex items-center gap-3 justify-center
-      ${
-        error
-          ? "opacity-80 cursor-not-allowed"
-          : "opacity-100 cursor-pointer"
-      }
+      ${error ? "opacity-60 pointer-events-none" : "opacity-100 cursor-pointer"}
       ${className}`}
     >
       {loading ? (
