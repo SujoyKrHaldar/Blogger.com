@@ -8,15 +8,15 @@ const GuestRoute = ({ children, redirectOnAuthSuccess }) => {
 };
 
 const SemiProtectedRoute = ({ children, redirectOnSuccess }) => {
-  const { authStatus, userData } = useSelector((state) => state.auth);
-  const { isActivated } = useSelector((state) => state.profile);
+  const { authStatus } = useSelector((state) => state.auth);
+  const { isActivated, profileData } = useSelector((state) => state.profile);
 
   return !authStatus ? (
     <Navigate to="/login" />
   ) : authStatus && !isActivated ? (
     children
   ) : (
-    <Navigate to={redirectOnSuccess || "/profile/" + userData.$id} />
+    <Navigate to={redirectOnSuccess || "/author/" + profileData?.username} />
   );
 };
 
