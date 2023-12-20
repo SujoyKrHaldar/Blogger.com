@@ -66,7 +66,7 @@ function SideNavbar({
                   </NavLink>
                 </>
               ) : (
-                <Link to="/get-started">
+                <Link onClick={toggelMenu} to="/setup">
                   <p>Create Profile</p>
                 </Link>
               )}
