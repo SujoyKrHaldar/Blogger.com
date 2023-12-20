@@ -38,13 +38,13 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: (
-          <GuestRoute redirectOnAuthSuccess="/get-started">
+          <GuestRoute redirectOnAuthSuccess="/setup">
             <Signup />
           </GuestRoute>
         ),
       },
       {
-        path: "/get-started",
+        path: "/setup",
         element: (
           <SemiProtectedRoute>
             <GetStarted />
