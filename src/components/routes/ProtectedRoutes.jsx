@@ -27,31 +27,10 @@ const PrivateRoute = ({ children }) => {
   return !authStatus ? (
     <Navigate to="/login" />
   ) : authStatus && !isActivated ? (
-    <Navigate to="/get-started" />
+    <Navigate to="/setup" />
   ) : (
     children
   );
 };
 
 export { PrivateRoute, GuestRoute, SemiProtectedRoute };
-
-// Public Routes: /, /login, /signup, /feed, /search,
-// /author/username, /blog/blog-name
-// Accessable by Any ( Guests or Authenticated Users )
-
-// Guest Routes: /, /login, /signup
-// Accessable by only Guests ( authStatus = F )
-// if authStatus = T => Redirected to => /feed
-
-// Semi-Protected Routes : /get-started
-// Accessable by only Authenticated Users with profile Activation False
-// ( authStatus = T && isActivated = F)
-// if authStatus = F => redirected to => /login
-// if authStatus = T & isActivated = T => redirected to => /dashboard
-
-// Protected Routes: /dashboard, /create-post, /update-post
-// Accessable by only Authenticated Users
-// ( authStatus = T && isActivated = T)
-// if authStatus = F => redirected to => /login
-// if authStatus = T & isActivated = F => redirected to => /get-started
-// if authStatus = T & isActivated = T => redirected to => /dashboard
