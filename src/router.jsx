@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import { GuestRoute, PrivateRoute, SemiProtectedRoute } from "./components";
 import {
+  CreateArticle,
   Dashboard,
   Feed,
   GetStarted,
@@ -49,6 +50,14 @@ const router = createBrowserRouter([
           <SemiProtectedRoute>
             <GetStarted />
           </SemiProtectedRoute>
+        ),
+      },
+      {
+        path: "/create",
+        element: (
+          <PrivateRoute>
+            <CreateArticle />
+          </PrivateRoute>
         ),
       },
       {
