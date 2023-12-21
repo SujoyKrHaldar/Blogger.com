@@ -8,6 +8,7 @@ import PageNotFound from "./public/PageNotFound";
 import Profile from "./public/Profile";
 import Search from "./public/Search";
 import Settings from "./private/Settings";
+import CreateArticle from "./private/CreateArticle";
 
 export {
   Dashboard,
@@ -20,4 +21,5 @@ export {
   Search,
   Signup,
   Settings,
+  CreateArticle,
 };
