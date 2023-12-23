@@ -13,7 +13,7 @@ function Login() {
       <AuthUI
         title="Login"
         FormComponent={<LoginForm />}
-        imgSrc="https://plus.unsplash.com/premium_photo-1682434315665-3b733ae6f99f?q=80&w=1901&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        imgSrc="https://images.unsplash.com/photo-1594323713852-9626155bfd37?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         imgAlt="Auth Background Image"
       >
         <div className="container">
