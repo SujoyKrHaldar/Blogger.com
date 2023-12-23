@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Input, MetaTags, SubmitBtn, Image, ShowError } from "../../components";
+import { Input, MetaTags, SubmitBtn, Image, ShowError, Textarea } from "../../components";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { userProfile, assetService } from "../../service";
@@ -192,6 +192,7 @@ function GetStarted() {
 
               <Input
                 label="Username"
+                className="rounded-2xl"
                 placeholder="How do you like people to call you?"
                 description="Choose your unique username by adding letters, numbers. https://blogger.com/author/@username"
                 error={errors?.username || error}
@@ -199,8 +200,8 @@ function GetStarted() {
                 {...register("username", {
                   required: "Username is required.",
                   maxLength: {
-                    value: 15,
-                    message: "Username must be maximum 15 characters long.",
+                    value: 20,
+                    message: "Username must be maximum 20 characters long.",
                   },
                   validate: {
                     noSpaces: (value) => {
@@ -218,10 +219,10 @@ function GetStarted() {
                 })}
               />
 
-              <Input
+              <Textarea
                 label="Bio"
                 description="Write a short bio for your Profile."
-                placeholder="Eg. Software Engineer"
+                placeholder="Eg: Software Engineer"
                 error={errors?.bio || error}
                 errorMessage={errors?.bio?.message}
                 {...register("bio", {
@@ -252,7 +253,6 @@ function GetStarted() {
               Changes made to your name and profile picture are visible only on
               Blogger.
             </p>
-
             <Link className="block w-fit" to="/feed">
               <p className="text-sm font-medium">Create Profile Later</p>
             </Link>
