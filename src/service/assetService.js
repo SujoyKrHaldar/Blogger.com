@@ -22,7 +22,7 @@ class AssetService {
         asset
       );
     } catch (error) {
-      throw error;
+      throw error.message;
     }
   }
 
@@ -33,7 +33,7 @@ class AssetService {
         assetId
       );
     } catch (error) {
-      throw error;
+      throw error.message;
     }
   }
 
@@ -53,7 +53,7 @@ class AssetService {
         assetId
       );
     } catch (error) {
-      throw error;
+      throw error.message;
     }
   }
 
@@ -64,7 +64,7 @@ class AssetService {
         assetId
       );
     } catch (error) {
-      throw error;
+      throw error.message;
     }
   }
 }
