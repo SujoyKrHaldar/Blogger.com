@@ -87,7 +87,8 @@ html {
 }
 
 p,
-input {
+input,
+textarea {
   font-family: "Poppins", sans-serif;
 }
 
