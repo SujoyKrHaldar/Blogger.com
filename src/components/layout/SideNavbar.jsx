@@ -22,7 +22,7 @@ function SideNavbar({
       }`}
     >
       <div
-        className={`w-max h-full bg-white ml-auto duration-300 border-l rounded-xl border-gray-400 shadow-2xl
+        className={`w-max min-w-[350px] h-full bg-white ml-auto duration-300 border-l rounded-xl border-gray-400 shadow-2xl
        ${isOpen ? "translate-x-0 opacity-100" : "translate-x-full"}`}
       >
         <div
