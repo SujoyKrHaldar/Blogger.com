@@ -1,14 +1,16 @@
 import Layout from "./layout/Layout";
 import Notification from "./layout/Notification";
 
-import LoginForm from "./forms/LoginForm";
-import SignupForm from "./forms/SignupForm";
+import LoginForm from "./forms/auth/LoginForm";
+import SignupForm from "./forms/auth/SignupForm";
+import SetupProfileForm from "./forms/profile/SetupProfileForm";
 
 import ArticleCard from "./shared/ArticleCard";
 import ArticleList from "./shared/ArticleList";
 import CtaBtn from "./shared/CtaBtn";
 import Image from "./shared/Image";
 import Input from "./shared/Input";
+import Textarea from "./shared/Textarea";
 import MetaTags from "./shared/MetaTags";
 import SearchInput from "./shared/SearchInput";
 import ShowError from "./shared/ShowError";
@@ -40,6 +42,7 @@ export {
   HomeLanding,
   Image,
   Input,
+  Textarea,
   Layout,
   LoginForm,
   MetaTags,
@@ -57,4 +60,5 @@ export {
   SubmitBtn,
   SettingsLayout,
   SettingsBody,
+  SetupProfileForm,
 };
