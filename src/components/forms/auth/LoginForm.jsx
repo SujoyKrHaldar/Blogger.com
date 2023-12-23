@@ -1,17 +1,17 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { IconLock } from "../../assets/icons";
+import { IconLock } from "../../../assets/icons";
 import {
   ACTIVATE_PROFILE,
   DISABLE_PROFILE,
   LOGIN,
   SHOW_NOTIFICATION,
-} from "../../global";
-import { authService } from "../../service";
-import Input from "../shared/Input";
-import ShowError from "../shared/ShowError";
-import SubmitBtn from "../shared/SubmitBtn";
+} from "../../../global";
+import { authService } from "../../../service";
+import Input from "../../shared/Input";
+import ShowError from "../../shared/ShowError";
+import SubmitBtn from "../../shared/SubmitBtn";
 
 function LoginForm() {
   const {

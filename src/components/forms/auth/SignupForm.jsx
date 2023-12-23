@@ -1,11 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { LOGIN, SHOW_NOTIFICATION } from "../../global";
-import { authService } from "../../service";
-import Input from "../shared/Input";
-import ShowError from "../shared/ShowError";
-import SubmitBtn from "../shared/SubmitBtn";
+import { LOGIN, SHOW_NOTIFICATION } from "../../../global";
+import { authService } from "../../../service";
+import Input from "../../shared/Input";
+import ShowError from "../../shared/ShowError";
+import SubmitBtn from "../../shared/SubmitBtn";
 
 function SignupForm() {
   const {
