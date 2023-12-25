@@ -2,8 +2,9 @@
 
 function SvgBackground({ className = "absolute inset-0 opacity-20" }) {
   return (
-    <div className={`w-full h-full overflow-hidden  ${className}`}>
+    <div className={`w-full h-full overflow-hidden ${className}`}>
       <svg
+        className="w-full h-full"
         preserveAspectRatio="none"
         viewBox="0 0 1920 1080"
         xmlns="http://www.w3.org/2000/svg"
