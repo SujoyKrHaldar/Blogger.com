@@ -3,7 +3,7 @@ import Notification from "./layout/Notification";
 
 import LoginForm from "./forms/auth/LoginForm";
 import SignupForm from "./forms/auth/SignupForm";
-// import SetupProfileForm from "./forms/profile/SetupProfileForm";
+import SetupProfileForm from "./forms/profile/SetupProfileForm";
 
 import ArticleCard from "./shared/ArticleCard";
 import ArticleList from "./shared/ArticleList";
@@ -60,5 +60,5 @@ export {
   SubmitBtn,
   SettingsLayout,
   SettingsBody,
-  // SetupProfileForm,
+  SetupProfileForm,
 };
