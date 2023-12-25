@@ -45,13 +45,7 @@ function SignupForm() {
 
   return (
     <>
-      <div className="w-full space-y-4 ">
-        <ShowError
-          error={error}
-          errorMessage={error}
-          closeError={() => setError("")}
-        />
-
+      <div className="w-full">
         <form onSubmit={handleSubmit(signupEvent)} className="space-y-4">
           <Input
             label="Name"
@@ -98,6 +92,12 @@ function SignupForm() {
             loading={loading}
           />
         </form>
+
+        <ShowError
+          error={error}
+          errorMessage={error}
+          closeError={() => setError("")}
+        />
       </div>
     </>
   );

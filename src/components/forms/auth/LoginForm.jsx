@@ -61,13 +61,7 @@ function LoginForm() {
 
   return (
     <>
-      <div className="w-full space-y-4">
-        <ShowError
-          error={error}
-          errorMessage={error}
-          closeError={() => setError("")}
-        />
-
+      <div className="w-full">
         <form onSubmit={handleSubmit(loginEvent)} className="space-y-4">
           <Input
             label="Email"
@@ -107,6 +101,12 @@ function LoginForm() {
             loading={loading}
           />
         </form>
+
+        <ShowError
+          error={error}
+          errorMessage={error}
+          closeError={() => setError("")}
+        />
       </div>
     </>
   );

@@ -66,69 +66,71 @@ function SetupProfileForm() {
 
   return (
     <>
-      <form onSubmit={handleSubmit(createProfile)} className="space-y-4">
-        <p className="text-center">Do you like this Profile Photo?</p>
+      <div className="w-full">
+        <form onSubmit={handleSubmit(createProfile)} className="space-y-4">
+          <p className="text-center">Do you like this Profile Photo?</p>
 
-        <UploadProfilePhoto
-          passError={setUploadError}
-          passFile={setUploadFile}
-        />
+          <UploadProfilePhoto
+            passError={setUploadError}
+            passFile={setUploadFile}
+          />
 
-        <Input
-          label="Username"
-          className="rounded-2xl"
-          placeholder="How do you like people to call you?"
-          description="Choose your unique username by adding letters, numbers. https://blogger.com/author/@username"
-          error={errors?.username || error}
-          errorMessage={errors?.username?.message}
-          {...register("username", {
-            required: "Username is required.",
-            maxLength: {
-              value: 20,
-              message: "Username must be maximum 20 characters long.",
-            },
-            validate: {
-              noSpaces: (value) => {
-                return !/\s/.test(value) || "Username cannot contain spaces.";
+          <Input
+            label="Username"
+            className="rounded-2xl"
+            placeholder="How do you like people to call you?"
+            description="Choose your unique username by adding letters, numbers. https://blogger.com/author/@username"
+            error={errors?.username || error}
+            errorMessage={errors?.username?.message}
+            {...register("username", {
+              required: "Username is required.",
+              maxLength: {
+                value: 20,
+                message: "Username must be maximum 20 characters long.",
               },
-              validFormat: (value) => {
-                return (
-                  /^[a-zA-Z0-9_]+$/.test(value) ||
-                  "Username can only contain letters, numbers, and underscores."
-                );
+              validate: {
+                noSpaces: (value) => {
+                  return !/\s/.test(value) || "Username cannot contain spaces.";
+                },
+                validFormat: (value) => {
+                  return (
+                    /^[a-zA-Z0-9_]+$/.test(value) ||
+                    "Username can only contain letters, numbers, and underscores."
+                  );
+                },
               },
-            },
-          })}
-        />
+            })}
+          />
 
-        <Textarea
-          label="Bio"
-          description="Write a short bio for your Profile."
-          placeholder="Eg: Software Engineer"
-          error={errors?.bio || error}
-          errorMessage={errors?.bio?.message}
-          {...register("bio", {
-            required: "Bio is required.",
-            maxLength: {
-              value: 100,
-              message: "Maximum length esceeds.",
-            },
-          })}
-        />
+          <Textarea
+            label="Bio"
+            description="Write a short bio for your Profile."
+            placeholder="Eg: Software Engineer"
+            error={errors?.bio || error}
+            errorMessage={errors?.bio?.message}
+            {...register("bio", {
+              required: "Bio is required.",
+              maxLength: {
+                value: 100,
+                message: "Maximum length esceeds.",
+              },
+            })}
+          />
 
-        <SubmitBtn
-          error={uploadError || errors?.username || errors?.bio}
-          btnText="Create Profile"
-          loading={formSubmitLoading}
-          textOnLoad="Creating your profile. Please wait"
-        />
+          <SubmitBtn
+            error={uploadError || errors?.username || errors?.bio}
+            btnText="Create Profile"
+            loading={formSubmitLoading}
+            textOnLoad="Creating your profile. Please wait"
+          />
+        </form>
 
         <ShowError
           error={error}
           errorMessage={error}
           closeError={() => setError("")}
         />
-      </form>
+      </div>
     </>
   );
 }
