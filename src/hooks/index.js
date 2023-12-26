@@ -1,4 +1,5 @@
 import useAutoLoginOnRefresh from "./useAutoLoginOnRefresh";
+import useFetchPosts from "./useFetchPosts";
 import useFetchProfile from "./useFetchProfile";
 
-export { useFetchProfile, useAutoLoginOnRefresh };
+export { useAutoLoginOnRefresh, useFetchPosts, useFetchProfile };

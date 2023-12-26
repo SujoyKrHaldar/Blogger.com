@@ -1,25 +1,8 @@
 import { ArticleList, MetaTags } from "../../components";
-import { useState, useEffect } from "react";
-import { postService } from "../../service";
+import { useFetchPosts } from "../../hooks";
 
 function Feed() {
-  const [post, setPost] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const getArticles = async () => {
-    try {
-      const { documents } = await postService.getAllPosts();
-      if (documents) {
-        setPost(documents);
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getArticles();
-  }, []);
+  const { loading, post } = useFetchPosts();
 
   return (
     <>
