@@ -29,9 +29,7 @@ function Feed() {
         description="Discover stories, thinking, and expertise from writers on any topic. Create and grow your developer blog, newsletter, or team engineering blog effortlessly with us."
       />
 
-      <section className="py-28">
-        <ArticleList data={post} loading={loading} />
-      </section>
+      <ArticleList data={post} loading={loading} />
     </>
   );
 }
