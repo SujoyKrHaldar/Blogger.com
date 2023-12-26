@@ -31,8 +31,9 @@ function ProfileHeader({ profile }) {
           <p className=" text-green-600">@{profile?.username}</p>
           <h1 className="text-4xl font-semibold">{profile?.name}</h1>
           <p className="max-w-xl mx-auto">{profile?.bio}</p>
-
-          <p className="font-bold">33.5K Posts</p>
+          {profile.article.length > 0 && (
+            <p className="font-bold">{profile.article.length} Posts</p>
+          )}
         </div>
       </div>
     </section>
