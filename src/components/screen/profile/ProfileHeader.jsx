@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { IconSuccess } from "../../../assets/icons";
 import { assetService } from "../../../service";
 import Image from "../../shared/Image";
 
@@ -15,7 +16,16 @@ function ProfileHeader({ profile }) {
 
       <div className="container -mt-20">
         <div className="text-center space-y-3">
-          <div className="w-[150px] h-[150px] mx-auto rounded-full overflow-hidden p-2 bg-white">
+          <div className="w-[150px] h-[150px] mx-auto rounded-full p-1 bg-white">
+            {profile.isEmailVerified && (
+              <div
+                title="User is verified"
+                className=" bg-green-600 text-white rounded-full p-1 text-xl border-4 border-white
+                absolute z-10 bottom-2 right-2"
+              >
+                <IconSuccess />
+              </div>
+            )}
             <Image className="rounded-full" src={imgSrc} />
           </div>
           <p className=" text-green-600">@{profile?.username}</p>
