@@ -1,8 +1,6 @@
-import { ArticleList, HomeLanding, MetaTags } from "../../components";
+import { HomeLanding, MetaTags } from "../../components";
 
 function Home() {
-  // const [data, setData] = useState([]);
-
   return (
     <>
       <MetaTags
@@ -11,14 +9,6 @@ function Home() {
       />
 
       <HomeLanding />
-      {/* <section className="min-h-full">
-        <ArticleList
-          data={data}
-          title="Trending Posts"
-          url="/feed"
-          urlText="Discover all"
-        />
-      </section> */}
     </>
   );
 }
