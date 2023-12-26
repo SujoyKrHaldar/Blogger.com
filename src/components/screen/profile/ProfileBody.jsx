@@ -45,7 +45,7 @@ function ProfileBody({ profile }) {
           <ProfileArticle
             isProfileOwner={isProfileOwner}
             name={profile.name}
-            article={null}
+            article={profile?.article}
           />
         )}
 

@@ -1,12 +1,31 @@
 /* eslint-disable react/prop-types */
+import ArticleCard from "../../shared/ArticleCard";
 import Image from "../../shared/Image";
 import ProfileFallbackUI from "./ProfileFallbackUI";
+import { Link } from "react-router-dom";
 
 function ProfileArticle({ isProfileOwner, name, article }) {
   return (
     <>
-      {article ? (
-        ""
+      {article && article.length > 0 ? (
+        <div className="grid grid-cols-4 gap-4">
+          {article.map((data) => (
+            <ArticleCard key={data.$id} data={data} />
+          ))}
+
+          {isProfileOwner && (
+            <Link
+              to="/create"
+              className="rounded-xl border-2 border-dashed border-gray-300 bg-gray-100
+            w-full h-full duration-300 hover:bg-gray-50 flex items-center justify-center"
+            >
+              <div className="text-center">
+                <p className="text-6xl font-normal text-gray-300">+</p>
+                <p className="font-medium text-gray-400">Create new</p>
+              </div>
+            </Link>
+          )}
+        </div>
       ) : isProfileOwner ? (
         <ProfileFallbackUI
           title="Write something"
