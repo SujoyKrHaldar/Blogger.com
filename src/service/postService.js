@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-catch */
-import { Client, Databases } from "appwrite";
+import { Client, Databases, Query } from "appwrite";
 import config from "../env";
 
 class PostService {
@@ -22,19 +22,22 @@ class PostService {
         config.appwriteDatabaseId,
         config.appwritePostCollectionId,
         [
-          //   Query.equal("isPublished", [false]),
-          //   Query.select(["title", "description", "slug", "user"]),
+          Query.orderDesc("$createdAt"),
+          Query.limit(25),
+          Query.offset(0),
+          // Query.equal("isPublished", [true]),
         ]
       );
-
+      // console.log(posts);
       return posts;
     } catch (error) {
-      console.log(error.type);
       throw error;
     }
   }
 
   async getPostBySlug(slug) {}
+
+  async getPostBySearch(text) {}
 
   async updatePost(data) {}
 
