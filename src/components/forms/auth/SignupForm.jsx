@@ -34,6 +34,7 @@ function SignupForm() {
               type: "SUCCESS",
             })
           );
+          sessionStorage.setItem("isLoggedin", true);
         }
       }
     } catch (error) {
