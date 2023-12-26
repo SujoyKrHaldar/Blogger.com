@@ -1,9 +1,6 @@
 function SkeletonCard() {
   return (
-    <div
-      className="rounded-3xl flex items-end text-white overflow-hidden
-      w-full h-[450px] duration-300 animate-pulse bg-gray-200"
-    ></div>
+    <div className="rounded-xl w-full h-[400px] duration-300 animate-pulse bg-gray-200"></div>
   );
 }
 

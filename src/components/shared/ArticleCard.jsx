@@ -1,39 +1,60 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-import { IoIosArrowRoundForward } from "react-icons/io";
+import { IconArrowLeft } from "../../assets/icons";
+import { assetService } from "../../service";
 import Image from "./Image";
 
-function ArticleCard({ title, category }) {
+function ArticleCard({ data }) {
+  const imgSrc = data?.user?.profilePicId
+    ? assetService.getAssetPreview(data.user.profilePicId)
+    : "/default-avatar.png";
+
   return (
     <div
       className="border border-black rounded-xl text-white overflow-hidden flex flex-col gap-0
-      w-full h-[380px] hover:scale-95 duration-300 group shadow-xl hover:shadow-md"
+      w-full h-[400px] hover:scale-95 duration-300 group"
     >
       <div className="w-full h-1/2 overflow-hidden group-hover:scale-110 duration-300 bg-white">
-        {/* {photo_url && <img src={photo_url} alt={title} />} */}
-        <Image src="https://images.unsplash.com/photo-1566125882500-87e10f726cdc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bW9ja3VwfGVufDB8fDB8fHww" />
+        <Image src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
       </div>
 
-      <div className="absolute top-4 right-4 w-10 h-10 rounded-full border-2 border-white overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt=""
-        />
-      </div>
+      {data.user && (
+        <div className="absolute top-4 right-4 w-10 h-10 rounded-full border-2 border-white overflow-hidden">
+          <Image src={imgSrc} alt={data.user.name} />
+        </div>
+      )}
 
-      <div className="p-6 w-full flex-1 flex flex-col justify-between text-black border-t bg-white border-black">
+      <div
+        className="p-6 w-full flex-1 flex flex-col justify-between text-black gap-4
+        border-t bg-white border-black"
+      >
         <div className="space-y-2">
-          <p className="text-sm">{category}</p>
-          <p className="font-bold text-xl">{title}</p>
-          <p className="text-sm">
-            by <span className="font-regular italic">Sujoykrhaldar</span>
+          <p className="font-bold text-xl first-letter:uppercase">
+            {data.title}
+          </p>
+          {data.user && (
+            <p className="text-sm">
+              by{" "}
+              <Link
+                to={`/author/${data.user.username}`}
+                className="font-semibold text-green-600"
+              >
+                {data.user.name}
+              </Link>
+            </p>
+          )}
+          <p className="text-sm first-letter:uppercase">
+            {data.description.slice(0, 100)} ...
           </p>
         </div>
 
-        <Link to="/blogs/blog" className="flex items-center justify-between">
+        <Link
+          to={`/post/${data.slug}`}
+          className="flex items-center justify-between"
+        >
           <p className="font-medium">Read Article</p>
           <div className="text-2xl">
-            <IoIosArrowRoundForward />
+            <IconArrowLeft />
           </div>
         </Link>
       </div>
