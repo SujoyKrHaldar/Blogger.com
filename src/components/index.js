@@ -4,6 +4,7 @@ import Notification from "./layout/Notification";
 import LoginForm from "./forms/auth/LoginForm";
 import SignupForm from "./forms/auth/SignupForm";
 import SetupProfileForm from "./forms/profile/SetupProfileForm";
+import ArticleForm from "./forms/article/ArticleForm";
 
 import ArticleCard from "./shared/ArticleCard";
 import ArticleList from "./shared/ArticleList";
@@ -61,4 +62,5 @@ export {
   SettingsLayout,
   SettingsBody,
   SetupProfileForm,
+  ArticleForm,
 };
