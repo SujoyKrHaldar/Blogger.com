@@ -39,6 +39,7 @@ function SetupProfileForm() {
         ...data,
         name: userData.name,
         email: userData.email,
+        isEmailVerified: userData.emailVerification,
         profilePicId: fileInfo?.$id,
       };
 
