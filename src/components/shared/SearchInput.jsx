@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { IoIosSearch } from "react-icons/io";
-import { IoMdClose } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import { IconClose, IconSearch } from "../../assets/icons";
 
 function SearchInput({
   query,
@@ -25,7 +24,7 @@ function SearchInput({
           searchValue.length > 0 ? "opacity-100" : "opacity-30"
         }`}
       >
-        <IoIosSearch />
+        <IconSearch />
       </div>
       <form className="w-full" onSubmit={(e) => handleSearch(e)}>
         <input
@@ -43,7 +42,7 @@ function SearchInput({
           searchValue.length > 0 ? "opacity-100" : "opacity-0"
         }`}
       >
-        <IoMdClose />
+        <IconClose />
       </div>
     </div>
   );
