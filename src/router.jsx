@@ -19,6 +19,7 @@ import {
   Settings,
   Signup,
   SocialSettings,
+  Article,
 } from "./pages";
 
 const router = createBrowserRouter([
@@ -115,6 +116,10 @@ const router = createBrowserRouter([
       {
         path: "feed",
         element: <Feed />,
+      },
+      {
+        path: "post/:postSlug",
+        element: <Article />,
       },
       {
         path: "search",
