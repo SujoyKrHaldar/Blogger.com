@@ -11,12 +11,12 @@ import PageNotFound from "./PageNotFound";
 
 function Profile() {
   const { username } = useParams();
-  const { profile, loading, notFound } = useFetchProfile(username);
+  const { profile, loading, notFound } = useFetchProfile(username.slice(1));
 
   return (
     <>
       <MetaTags
-        conicalRoute={`/author/${username}`}
+        conicalRoute={`/@${username}`}
         title={profile?.name ? `${profile?.name} • Blogger.com` : "Blogger.com"}
         description={profile?.bio ? `${profile?.bio}` : ""}
       />

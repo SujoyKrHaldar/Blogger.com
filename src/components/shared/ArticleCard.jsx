@@ -37,7 +37,7 @@ function ArticleCard({ data }) {
               <p className="text-sm">
                 by{" "}
                 <Link
-                  to={`/author/${data.user.username}`}
+                  to={`/@${data.user.username}`}
                   className="font-semibold text-green-600"
                 >
                   {data.user.name}

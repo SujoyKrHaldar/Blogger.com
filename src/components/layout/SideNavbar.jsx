@@ -52,17 +52,13 @@ function SideNavbar({
                 <>
                   <NavLink
                     onClick={toggelMenu}
-                    to={`/author/${profileData?.username}`}
+                    to={`/@${profileData?.username}`}
                   >
                     <p>Profile</p>
                   </NavLink>
 
                   <NavLink onClick={toggelMenu} to={`/create`}>
                     <p>Create Article</p>
-                  </NavLink>
-
-                  <NavLink onClick={toggelMenu} to={`/saved`}>
-                    <p>Saved Post</p>
                   </NavLink>
 
                   <NavLink onClick={toggelMenu} to="/dashboard">

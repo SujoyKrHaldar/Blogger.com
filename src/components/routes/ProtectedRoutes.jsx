@@ -16,7 +16,7 @@ const SemiProtectedRoute = ({ children, redirectOnSuccess }) => {
   ) : authStatus && !isActivated ? (
     children
   ) : (
-    <Navigate to={redirectOnSuccess || "/author/" + profileData?.username} />
+    <Navigate to={redirectOnSuccess || `/@${profileData?.username}`} />
   );
 };
 
