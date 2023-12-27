@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { IconClose, IconSuccess } from "../../../../assets/icons";
-import { SHOW_LOADING, SHOW_NOTIFICATION } from "../../../../global";
-import { authService } from "../../../../service";
-import SettingsTemplate from "../SettingsTemplate";
+import { IconClose, IconSuccess } from "../../../assets/icons";
+import { SHOW_LOADING, SHOW_NOTIFICATION } from "../../../global";
+import { SettingsTemplate } from "../../../components";
+import { authService } from "../../../service";
 
 function SessionSettings() {
   const [sessionList, setSessionList] = useState();

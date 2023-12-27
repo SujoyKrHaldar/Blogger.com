@@ -1,4 +1,4 @@
-import SettingsTemplate from "../SettingsTemplate";
+import { SettingsTemplate } from "../../../components";
 
 function SocialSettings() {
   return (
