@@ -8,6 +8,7 @@ import Home from "./public/Home";
 import PageNotFound from "./public/PageNotFound";
 import Profile from "./public/Profile";
 import Search from "./public/Search";
+import Article from "./public/Article";
 
 import AccountSettings from "./private/settings/AccountSettings";
 import BrandSettings from "./private/settings/BrandSettings";
@@ -35,4 +36,5 @@ export {
   Settings,
   Signup,
   SocialSettings,
+  Article,
 };
