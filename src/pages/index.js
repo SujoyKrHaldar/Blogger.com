@@ -1,5 +1,6 @@
 import Login from "./auth/Login";
 import Signup from "./auth/Signup";
+import CreateArticle from "./private/CreateArticle";
 import Dashboard from "./private/Dashboard";
 import GetStarted from "./private/GetStarted";
 import Feed from "./public/Feed";
@@ -7,19 +8,22 @@ import Home from "./public/Home";
 import PageNotFound from "./public/PageNotFound";
 import Profile from "./public/Profile";
 import Search from "./public/Search";
-import Settings from "./private/Settings";
-import CreateArticle from "./private/CreateArticle";
+
+import AccountSettings from "./private/settings/AccountSettings";
+import BrandSettings from "./private/settings/BrandSettings";
+import DeleteProfile from "./private/settings/DeleteProfile";
+import ProfileSettings from "./private/settings/ProfileSettings";
+import SessionSettings from "./private/settings/SessionSettings";
+import Settings from "./private/settings/Settings";
+import SocialSettings from "./private/settings/SocialSettings";
 
 export {
-  Dashboard,
-  Feed,
+  AccountSettings,
+  BrandSettings, CreateArticle, Dashboard, DeleteProfile, Feed,
   GetStarted,
   Home,
   Login,
   PageNotFound,
-  Profile,
-  Search,
-  Signup,
-  Settings,
-  CreateArticle,
+  Profile, ProfileSettings, Search, SessionSettings, Settings, Signup, SocialSettings
 };
+

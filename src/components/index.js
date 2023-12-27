@@ -1,3 +1,9 @@
+import {
+  GuestRoute,
+  PrivateRoute,
+  SemiProtectedRoute,
+} from "./routes/ProtectedRoutes";
+
 import Layout from "./layout/Layout";
 import Notification from "./layout/Notification";
 
@@ -22,13 +28,7 @@ import HomeLanding from "./screen/home/HomeLanding";
 import ProfileBody from "./screen/profile/ProfileBody";
 import ProfileHeader from "./screen/profile/ProfileHeader";
 import SettingsLayout from "./screen/settings/SettingsLayout";
-import SettingsBody from "./screen/settings/SettingsBody";
-
-import {
-  GuestRoute,
-  PrivateRoute,
-  SemiProtectedRoute,
-} from "./routes/ProtectedRoutes";
+import SettingsTemplate from "./screen/settings/SettingsTemplate";
 
 import SkeletonCard from "./loading-screen/SkeletonCard";
 import SplashScreen from "./loading-screen/SplashScreen";
@@ -60,7 +60,7 @@ export {
   SplashScreen,
   SubmitBtn,
   SettingsLayout,
-  SettingsBody,
   SetupProfileForm,
   ArticleForm,
+  SettingsTemplate,
 };
