@@ -14,8 +14,6 @@ class PostService {
     this.databases = new Databases(this.client);
   }
 
-  async createPost(data) {}
-
   async getAllPosts() {
     try {
       const posts = await this.databases.listDocuments(
@@ -35,9 +33,26 @@ class PostService {
     }
   }
 
-  async getPostBySlug(slug) {}
+  async getPostBySlug(slug) {
+    try {
+      const post = await this.databases.listDocuments(
+        config.appwriteDatabaseId,
+        config.appwritePostCollectionId,
+        [
+          Query.equal("slug", [slug]),
+          // Query.equal("isPublished", [true]),
+        ]
+      );
+
+      return post;
+    } catch (error) {
+      return;
+    }
+  }
 
   async getPostBySearch(text) {}
+
+  async createPost(data) {}
 
   async updatePost(data) {}
 
