@@ -80,7 +80,7 @@ function SetupProfileForm() {
             label="Username"
             className="rounded-2xl"
             placeholder="How do you like people to call you?"
-            description="Choose your unique username by adding letters, numbers. https://blogger.com/author/@username"
+            description="Choose your unique username by adding letters, numbers and without '@'. Profile URL: https://blogger.com/@username"
             error={errors?.username || error}
             errorMessage={errors?.username?.message}
             {...register("username", {
