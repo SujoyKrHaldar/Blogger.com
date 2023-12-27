@@ -2,17 +2,23 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import { GuestRoute, PrivateRoute, SemiProtectedRoute } from "./components";
 import {
+  AccountSettings,
+  BrandSettings,
   CreateArticle,
   Dashboard,
+  DeleteProfile,
   Feed,
   GetStarted,
   Home,
   Login,
   PageNotFound,
   Profile,
+  ProfileSettings,
   Search,
+  SessionSettings,
   Settings,
   Signup,
+  SocialSettings,
 } from "./pages";
 
 const router = createBrowserRouter([
@@ -21,7 +27,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/",
+        path: "",
         element: (
           <GuestRoute redirectOnAuthSuccess="/feed">
             <Home />
@@ -29,7 +35,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/login",
+        path: "login",
         element: (
           <GuestRoute redirectOnAuthSuccess="/feed">
             <Login />
@@ -37,7 +43,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/signup",
+        path: "signup",
         element: (
           <GuestRoute redirectOnAuthSuccess="/setup">
             <Signup />
@@ -45,7 +51,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/setup",
+        path: "setup",
         element: (
           <SemiProtectedRoute>
             <GetStarted />
@@ -53,7 +59,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/create",
+        path: "create",
         element: (
           <PrivateRoute>
             <CreateArticle />
@@ -61,7 +67,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard",
+        path: "dashboard",
         element: (
           <PrivateRoute>
             <Dashboard />
@@ -69,23 +75,49 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/settings",
+        path: "settings",
         element: (
           <PrivateRoute>
             <Settings />
           </PrivateRoute>
         ),
+        children: [
+          {
+            path: "",
+            element: <ProfileSettings />,
+          },
+          {
+            path: "branding",
+            element: <BrandSettings />,
+          },
+          {
+            path: "account",
+            element: <AccountSettings />,
+          },
+          {
+            path: "social",
+            element: <SocialSettings />,
+          },
+          {
+            path: "session",
+            element: <SessionSettings />,
+          },
+          {
+            path: "delete",
+            element: <DeleteProfile />,
+          },
+        ],
       },
       {
-        path: "/author/:username",
+        path: "author/:username",
         element: <Profile />,
       },
       {
-        path: "/feed",
+        path: "feed",
         element: <Feed />,
       },
       {
-        path: "/search",
+        path: "search",
         element: <Search />,
       },
       {
