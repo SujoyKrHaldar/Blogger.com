@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Link, NavLink } from "react-router-dom";
-import SearchInput from "../shared/SearchInput";
+import { IconSearch } from "../../assets/icons";
 import CtaBtn from "../shared/CtaBtn";
 import Image from "../shared/Image";
 
@@ -13,10 +13,11 @@ function MainNavbar({ authStatus, toggelMenu, imgSrc }) {
         </Link>
 
         <nav className="flex items-center gap-8">
-          <SearchInput
-            className="bg-gray-100 border border-gray-300 px-4 py-[0.6rem] rounded-full"
-            placeholder="Search"
-          />
+          <NavLink to="/search">
+            <div className="text-xl">
+              <IconSearch />
+            </div>
+          </NavLink>
 
           <NavLink to="/feed">
             <p>Feed</p>
