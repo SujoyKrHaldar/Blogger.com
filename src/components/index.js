@@ -13,7 +13,6 @@ import SetupProfileForm from "./forms/profile/SetupProfileForm";
 import ArticleForm from "./forms/article/ArticleForm";
 
 import ArticleCard from "./shared/ArticleCard";
-import ArticleList from "./shared/ArticleList";
 import CtaBtn from "./shared/CtaBtn";
 import Image from "./shared/Image";
 import Input from "./shared/Input";
@@ -36,7 +35,6 @@ import ProfileSkeletonUI from "./loading-screen/ProfileSkeletonUI";
 
 export {
   ArticleCard,
-  ArticleList,
   AuthUI,
   CtaBtn,
   GuestRoute,
