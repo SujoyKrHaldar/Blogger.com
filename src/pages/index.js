@@ -2,7 +2,7 @@ import Login from "./auth/Login";
 import Signup from "./auth/Signup";
 import CreateArticle from "./private/CreateArticle";
 import Dashboard from "./private/Dashboard";
-import GetStarted from "./private/GetStarted";
+import Setup from "./private/Setup";
 import Feed from "./public/Feed";
 import Home from "./public/Home";
 import PageNotFound from "./public/PageNotFound";
@@ -19,11 +19,20 @@ import SocialSettings from "./private/settings/SocialSettings";
 
 export {
   AccountSettings,
-  BrandSettings, CreateArticle, Dashboard, DeleteProfile, Feed,
-  GetStarted,
+  BrandSettings,
+  CreateArticle,
+  Dashboard,
+  DeleteProfile,
+  Feed,
+  Setup,
   Home,
   Login,
   PageNotFound,
-  Profile, ProfileSettings, Search, SessionSettings, Settings, Signup, SocialSettings
+  Profile,
+  ProfileSettings,
+  Search,
+  SessionSettings,
+  Settings,
+  Signup,
+  SocialSettings,
 };
-

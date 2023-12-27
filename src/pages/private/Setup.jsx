@@ -3,7 +3,7 @@ import { SvgBackground } from "../../assets";
 import { MetaTags, SetupProfileForm } from "../../components";
 import { useSelector } from "react-redux";
 
-function GetStarted() {
+function Setup() {
   const { userData } = useSelector((state) => state.auth);
 
   return (
@@ -46,4 +46,4 @@ function GetStarted() {
   );
 }
 
-export default GetStarted;
+export default Setup;
