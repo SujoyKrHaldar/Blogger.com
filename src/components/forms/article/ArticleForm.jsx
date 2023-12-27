@@ -148,7 +148,7 @@ function ArticleForm() {
                       onClick={generateSlugFromTitle}
                       className="text-sm absolute top-1 right-0 cursor-pointer"
                     >
-                      Generate from title
+                      Generate from Title
                     </p>
                   )}
                 </div>
@@ -160,6 +160,7 @@ function ArticleForm() {
                   error={errors?.description}
                   errorMessage={errors?.description?.message}
                   {...register("description", {
+                    required: "Description is required.",
                     maxLength: {
                       value: 250,
                       message:
