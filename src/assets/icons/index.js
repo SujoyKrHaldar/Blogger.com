@@ -7,6 +7,7 @@ import {
   IoIosArrowRoundForward as IconArrowLeft,
   IoMdClose as IconClose,
   IoIosWarning as IconWarning,
+  IoIosSearch as IconSearch,
 } from "react-icons/io";
 import { MdError as IconError } from "react-icons/md";
 import { TiTick as IconSuccess } from "react-icons/ti";
@@ -19,6 +20,6 @@ export {
   IconEyeOpen,
   IconLock,
   IconSuccess,
-  IconWarning
+  IconWarning,
+  IconSearch,
 };
-
