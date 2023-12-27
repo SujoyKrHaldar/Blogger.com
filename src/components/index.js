@@ -24,14 +24,17 @@ import SubmitBtn from "./shared/SubmitBtn";
 
 import AuthUI from "./screen/auth/AuthUI";
 import HomeLanding from "./screen/home/HomeLanding";
+import ArticleBody from "./screen/article/ArticleBody";
 import ProfileBody from "./screen/profile/ProfileBody";
 import ProfileHeader from "./screen/profile/ProfileHeader";
+
 import SettingsLayout from "./screen/settings/SettingsLayout";
 import SettingsTemplate from "./screen/settings/SettingsTemplate";
 
 import SkeletonCard from "./loading-screen/SkeletonCard";
 import SplashScreen from "./loading-screen/SplashScreen";
 import ProfileSkeletonUI from "./loading-screen/ProfileSkeletonUI";
+import ArticleSkeletonUI from "./loading-screen/ArticleSkeletonUI";
 
 export {
   ArticleCard,
@@ -61,4 +64,6 @@ export {
   SetupProfileForm,
   ArticleForm,
   SettingsTemplate,
+  ArticleSkeletonUI,
+  ArticleBody,
 };
