@@ -1,4 +1,9 @@
-import { ArticleCard, SkeletonCard, MetaTags } from "../../components";
+import {
+  ArticleCard,
+  SkeletonCard,
+  MetaTags,
+  SearchInput,
+} from "../../components";
 import { useFetchPosts } from "../../hooks";
 
 function Feed() {
@@ -13,7 +18,14 @@ function Feed() {
       />
 
       <section className="container py-28 space-y-8">
-        <h1 className="text-4xl font-bold ">Latest Posts</h1>
+        <div className="flex items-center justify-between">
+          <h1 className="text-4xl font-bold ">Latest Posts</h1>
+          <SearchInput
+            className="bg-gray-100 border border-gray-300 px-4 py-2 rounded-full 
+            w-full max-w-sm"
+            placeholder="Search here"
+          />
+        </div>
 
         <div className="grid grid-cols-4 gap-2">
           {!loading
