@@ -8,7 +8,7 @@ import {
   Dashboard,
   DeleteProfile,
   Feed,
-  GetStarted,
+  Setup,
   Home,
   Login,
   PageNotFound,
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
         path: "setup",
         element: (
           <SemiProtectedRoute>
-            <GetStarted />
+            <Setup />
           </SemiProtectedRoute>
         ),
       },
@@ -109,7 +109,7 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: "author/:username",
+        path: ":username",
         element: <Profile />,
       },
       {
