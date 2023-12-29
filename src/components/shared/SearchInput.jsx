@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { IconClose, IconSearch } from "../../assets/icons";
 
 function SearchInput({
+  tab,
   query,
   placeholder = "Search here",
   className = "px-6 py-1 rounded-full bg-white",
@@ -14,7 +15,9 @@ function SearchInput({
 
   const handleSearch = (e) => {
     e.preventDefault();
-    navigate("/search?query=" + searchValue.trim().replaceAll(" ", "+"));
+    const searchedQuery = searchValue.toLowerCase().trim().replaceAll(" ", "+");
+    const searchedTab = tab ? tab : "article";
+    navigate(`/search?query=${searchedQuery}&tab=${searchedTab}`);
   };
 
   return (
