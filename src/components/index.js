@@ -13,6 +13,7 @@ import SetupProfileForm from "./forms/profile/SetupProfileForm";
 import ArticleForm from "./forms/article/ArticleForm";
 
 import ArticleCard from "./shared/ArticleCard";
+import UserCard from "./shared/UserCard";
 import CtaBtn from "./shared/CtaBtn";
 import Image from "./shared/Image";
 import Input from "./shared/Input";
@@ -30,6 +31,8 @@ import ProfileHeader from "./screen/profile/ProfileHeader";
 
 import SettingsLayout from "./screen/settings/SettingsLayout";
 import SettingsTemplate from "./screen/settings/SettingsTemplate";
+import SearchDefault from "./screen/search/SearchDefault";
+import SearchContent from "./screen/search/SearchContent";
 
 import SkeletonCard from "./loading-screen/SkeletonCard";
 import SplashScreen from "./loading-screen/SplashScreen";
@@ -66,4 +69,7 @@ export {
   SettingsTemplate,
   ArticleSkeletonUI,
   ArticleBody,
+  SearchDefault,
+  SearchContent,
+  UserCard,
 };
