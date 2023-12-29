@@ -10,7 +10,7 @@ function SearchDefault() {
           <SearchInput
             placeholder="Search your posts here"
             className="w-full max-w-xl mx-auto px-6 py-4 rounded-full 
-             bg-white border-2 border-black"
+             bg-white border border-gray-400"
           />
         </div>
       </div>
