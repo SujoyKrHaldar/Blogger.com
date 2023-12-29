@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
-import SearchInput from "../../shared/SearchInput";
-import SearchedPeople from "./SearchedPeople";
-import SearchedPost from "./SearchedPost";
 import { Link } from "react-router-dom";
+import { useSearchPost, useSearchProfile } from "../../../hooks";
+import ArticleCard from "../../shared/ArticleCard";
+import SearchInput from "../../shared/SearchInput";
+import UserCard from "../../shared/UserCard";
+import SearchedResult from "./SearchedResult";
 
 const tabs = [
   {
@@ -16,6 +18,9 @@ const tabs = [
 ];
 
 function SearchContent({ query, tab }) {
+  const { loading: loadingPost, post } = useSearchPost(query);
+  const { loading: loadingPeople, author } = useSearchProfile(query);
+
   return (
     <section>
       <div className="w-full border-b border-gray-300 bg-gray-100 pt-12">
@@ -51,8 +56,25 @@ function SearchContent({ query, tab }) {
         </div>
       </div>
 
-      {tab === "article" && <SearchedPost query={query} />}
-      {tab === "author" && <SearchedPeople query={query} />}
+      {tab === "article" && (
+        <SearchedResult data={post} loading={loadingPost}>
+          {post.map((data) => (
+            <ArticleCard key={data.$id} data={data} />
+          ))}
+        </SearchedResult>
+      )}
+
+      {tab === "author" && (
+        <SearchedResult
+          data={author}
+          loading={loadingPeople}
+          loadingCardHeight="h-[300px]"
+        >
+          {author.map((data) => (
+            <UserCard key={data.$id} user={data} />
+          ))}
+        </SearchedResult>
+      )}
     </section>
   );
 }
