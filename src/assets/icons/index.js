@@ -14,6 +14,7 @@ import {
 import {
   IoBookmarkOutline as IconBookmarkedOff,
   IoBookmark as IconBookmarkedOn,
+  IoShareSocialOutline as IconShare,
 } from "react-icons/io5";
 import { MdError as IconError } from "react-icons/md";
 import { TiTick as IconSuccess } from "react-icons/ti";
@@ -32,4 +33,5 @@ export {
   IconBookmarkedOff,
   IconHeartOn,
   IconHeartOff,
+  IconShare,
 };
