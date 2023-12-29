@@ -38,28 +38,28 @@ function ArticleBody({ post }) {
 
         <div
           className="w-fit mt-8 mx-auto flex items-center justify-center 
-        py-2 px-8 border-t border-b border-gray-400"
+        py-2 px-8 border-t border-b border-gray-300"
         >
           <div
             onClick={() => setIsLiked(!isLiked)}
-            className="text-3xl cursor-pointer pr-6 border-r border-black"
+            className="text-xl cursor-pointer pr-6 border-r border-gray-400"
           >
             {isLiked ? <IconHeartOn /> : <IconHeartOff />}
           </div>
           <div
             onClick={() => setIsSaved(!isSaved)}
-            className="text-2xl cursor-pointer pl-6"
+            className="text-lg cursor-pointer pl-6"
           >
             {isSaved ? <IconBookmarkedOn /> : <IconBookmarkedOff />}
           </div>
         </div>
       </div>
 
-      <div className="w-full h-[500px] overflow-hidden bg-green-500 border border-black rounded-t-[100px]">
+      <div className="w-full h-[500px] overflow-hidden bg-white border border-black rounded-t-[100px]">
         <Image src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
       </div>
 
-      {post?.user?.$id === userData.$id && (
+      {userData && post?.user?.$id === userData.$id && (
         <div
           className="z-10 bg-white border border-gray-500 shadow-2xl rounded-xl
             fixed bottom-4 left-1/2 -translate-x-1/2 flex items-center justify-center"
