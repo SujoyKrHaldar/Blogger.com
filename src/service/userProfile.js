@@ -58,6 +58,20 @@ class UserProfile {
     }
   }
 
+  async getProfileBySearch(searchedtext) {
+    try {
+      const post = await this.databases.listDocuments(
+        config.appwriteDatabaseId,
+        config.appwriteUserCollectionId,
+        [Query.search("name", searchedtext), Query.limit(25), Query.offset(0)]
+      );
+
+      return post;
+    } catch (error) {
+      console.log("ERROR FROM APPWRITE: ", error.message);
+    }
+  }
+
   async updateProfile() {}
 }
 

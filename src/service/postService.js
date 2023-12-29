@@ -21,12 +21,11 @@ class PostService {
         config.appwritePostCollectionId,
         [
           Query.orderDesc("$createdAt"),
+          Query.equal("isPublished", [true]),
           Query.limit(25),
           Query.offset(0),
-          // Query.equal("isPublished", [true]),
         ]
       );
-      // console.log(posts);
       return posts;
     } catch (error) {
       throw error;
@@ -38,9 +37,26 @@ class PostService {
       const post = await this.databases.listDocuments(
         config.appwriteDatabaseId,
         config.appwritePostCollectionId,
+        [Query.equal("slug", [slug]), Query.equal("isPublished", [true])]
+      );
+
+      return post;
+    } catch (error) {
+      return;
+    }
+  }
+
+  async getPostBySearch(searchedtext) {
+    try {
+      const post = await this.databases.listDocuments(
+        config.appwriteDatabaseId,
+        config.appwritePostCollectionId,
         [
-          Query.equal("slug", [slug]),
-          // Query.equal("isPublished", [true]),
+          Query.orderDesc("$createdAt"),
+          Query.search("title", searchedtext),
+          Query.equal("isPublished", [true]),
+          Query.limit(25),
+          Query.offset(0),
         ]
       );
 
@@ -50,13 +66,13 @@ class PostService {
     }
   }
 
-  async getPostBySearch(text) {}
+  // async getPostById(id) {}
 
-  async createPost(data) {}
+  // async createPost(data) {}
 
-  async updatePost(data) {}
+  // async updatePost(data) {}
 
-  async deletePost(postId) {}
+  // async deletePost(postId) {}
 }
 
 const postService = new PostService();
