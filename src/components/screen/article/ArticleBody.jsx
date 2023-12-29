@@ -7,6 +7,7 @@ import {
   IconHeartOff,
   IconBookmarkedOn,
   IconHeartOn,
+  IconShare,
 } from "../../../assets/icons";
 import { useState } from "react";
 
@@ -48,9 +49,12 @@ function ArticleBody({ post }) {
           </div>
           <div
             onClick={() => setIsSaved(!isSaved)}
-            className="text-lg cursor-pointer pl-6"
+            className="text-lg cursor-pointer px-6 border-r border-gray-400"
           >
             {isSaved ? <IconBookmarkedOn /> : <IconBookmarkedOff />}
+          </div>
+          <div className="text-lg cursor-pointer pl-5">
+            <IconShare />
           </div>
         </div>
       </div>
