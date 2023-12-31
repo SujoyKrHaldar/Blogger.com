@@ -7,8 +7,9 @@ function useFetchProfile(username) {
   const [notFound, setNotFound] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  const getUserProfile = async () => {
+  const getUserProfile = async (username) => {
     try {
+      setLoading(true);
       const { documents } = await userProfile.getProfileByUsername(username);
       if (documents[0]) {
         setProfile(documents[0]);
@@ -23,7 +24,7 @@ function useFetchProfile(username) {
   };
 
   useEffect(() => {
-    getUserProfile();
+    getUserProfile(username);
   }, [username]);
 
   return { profile, loading, notFound };

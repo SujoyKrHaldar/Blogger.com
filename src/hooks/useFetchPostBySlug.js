@@ -7,8 +7,9 @@ function useFetchPostBySlug(slug) {
   const [notFound, setNotFound] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  const getArticles = async () => {
+  const getArticles = async (slug) => {
     try {
+      setLoading(true);
       const { documents } = await postService.getPostBySlug(slug);
       if (documents[0]) {
         setPost(documents[0]);
@@ -23,8 +24,8 @@ function useFetchPostBySlug(slug) {
   };
 
   useEffect(() => {
-    getArticles();
-  }, []);
+    getArticles(slug);
+  }, [slug]);
 
   return { loading, notFound, post };
 }
