@@ -2,16 +2,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IconClose, IconSearch } from "../../assets/icons";
+import { useQueryParams } from "../../hooks";
 
 function SearchInput({
-  tab,
-  query,
   placeholder = "Search here",
   className = "px-6 py-1 rounded-full bg-white",
 }) {
-  const [searchValue, setSearchValue] = useState(query || "");
+  const query = useQueryParams("query");
+  const tab = useQueryParams("tab");
 
   const navigate = useNavigate();
+  const [searchValue, setSearchValue] = useState(query || "");
 
   const handleSearch = (e) => {
     e.preventDefault();
