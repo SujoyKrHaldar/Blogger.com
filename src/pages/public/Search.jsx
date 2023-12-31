@@ -1,11 +1,9 @@
-import { useLocation } from "react-router-dom";
 import { MetaTags, SearchContent, SearchDefault } from "../../components";
+import { useQueryParams } from "../../hooks";
 
 function Search() {
-  const location = useLocation();
-  const searchQuery = new URLSearchParams(location.search);
-  const query = searchQuery.get("query");
-  const tab = searchQuery.get("tab");
+  const query = useQueryParams("query");
+  const tab = useQueryParams("tab");
 
   return (
     <>
