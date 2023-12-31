@@ -3,7 +3,7 @@ import { userProfile } from "../service";
 
 function useSearchProfile(searchedQuery) {
   const [author, setAuthor] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const getArticles = async (query) => {
     try {

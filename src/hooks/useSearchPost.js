@@ -3,7 +3,7 @@ import { postService } from "../service";
 
 function useSearchPost(searchedQuery) {
   const [post, setPost] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const getArticles = async (query) => {
     try {
