@@ -21,7 +21,7 @@ function ProfileAbout({ isProfileOwner, about, name }) {
           description="Here you can share more about yourself: your history, work
              experience, accomplishments, interests, dreams, and more."
           redirectText="About Yourself"
-          redirectTo="/dashboard"
+          redirectTo="/settings"
           imgSrc="/about-user.png"
         />
       ) : (
