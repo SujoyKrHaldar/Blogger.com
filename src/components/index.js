@@ -11,6 +11,7 @@ import LoginForm from "./forms/auth/LoginForm";
 import SignupForm from "./forms/auth/SignupForm";
 import SetupProfileForm from "./forms/profile/SetupProfileForm";
 import ArticleForm from "./forms/article/ArticleForm";
+import PasswordUpdateForm from "./forms/settings/account/PasswordUpdateForm";
 
 import ArticleCard from "./shared/ArticleCard";
 import UserCard from "./shared/UserCard";
@@ -72,4 +73,5 @@ export {
   SearchDefault,
   SearchContent,
   UserCard,
+  PasswordUpdateForm,
 };
