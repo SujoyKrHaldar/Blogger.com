@@ -29,39 +29,41 @@ const Input = forwardRef(
           )}
 
           <div className="space-y-2">
-            <input
-              id={id}
-              ref={ref}
-              {...props}
-              type={type === "password" ? currentType : type}
-              className={`px-5 py-3 block w-full h-full border outline-none 
+            <div>
+              <input
+                id={id}
+                ref={ref}
+                {...props}
+                type={type === "password" ? currentType : type}
+                className={`px-5 py-3 block w-full h-full border outline-none 
               placeholder:font-light placeholder:text-sm font-regular ${className}
               ${
                 error
                   ? "border-2 border-red-600 text-red-600 placeholder:text-red-600"
                   : "border-black text-black placeholder:text-gray-800"
               } `}
-            />
+              />
 
-            {type === "password" && (
-              <div
-                className={`cursor-pointer w-7 text-2xl
+              {type === "password" && (
+                <div
+                  className={`cursor-pointer w-7 text-2xl
             ${
               error ? "text-red-600" : "text-gray-400"
             } absolute bottom-[12px] right-[12px]`}
-              >
-                {currentType === "password" ? (
-                  <div onClick={() => setType("text")}>
-                    <IconEyeInvisible />
-                  </div>
-                ) : (
-                  <div onClick={() => setType(type)}>
-                    <IconEyeOpen />
-                  </div>
-                )}
-              </div>
-            )}
-            
+                >
+                  {currentType === "password" ? (
+                    <div onClick={() => setType("text")}>
+                      <IconEyeInvisible />
+                    </div>
+                  ) : (
+                    <div onClick={() => setType(type)}>
+                      <IconEyeOpen />
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+
             {description && !error && (
               <p className="text-xs text-gray-500">{description}</p>
             )}
