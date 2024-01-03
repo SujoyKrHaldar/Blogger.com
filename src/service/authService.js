@@ -77,6 +77,21 @@ class AuthService {
     }
   }
 
+  async updatePassword(newPassword, oldPassword) {
+    try {
+      const response = await this.account.updatePassword(
+        newPassword,
+        oldPassword
+      );
+      return response;
+    } catch (error) {
+      if (error.type === "user_invalid_credentials")
+        throw "Invalid credentials.";
+
+      throw error.message;
+    }
+  }
+
   async deleteSession(sessionId = "current") {
     try {
       await this.account.deleteSession(sessionId);
