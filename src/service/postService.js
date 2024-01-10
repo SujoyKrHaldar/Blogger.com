@@ -66,13 +66,24 @@ class PostService {
     }
   }
 
+  async deletePost(postId) {
+    try {
+      await this.databases.deleteDocument(
+        config.appwriteDatabaseId,
+        config.appwritePostCollectionId,
+        postId
+      );
+      return true;
+    } catch (error) {
+      throw error.message;
+    }
+  }
+
   // async getPostById(id) {}
 
   // async createPost(data) {}
 
   // async updatePost(data) {}
-
-  // async deletePost(postId) {}
 }
 
 const postService = new PostService();
