@@ -45,7 +45,9 @@ function ProfileBody({ profile }) {
           <ProfileArticle
             isProfileOwner={isProfileOwner}
             name={profile.name}
-            article={profile?.article}
+            article={profile?.article.sort(
+              (a, b) => new Date(b.$createdAt) - new Date(a.$createdAt)
+            )}
           />
         )}
 
